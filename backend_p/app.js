@@ -1,29 +1,37 @@
-const { application } = require('express');
-var express = require('express');
-var mongoose = require('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
+var bodyparser = require('body-parser');
 require("dotenv").config();
 
-var app = express();
-app.use(express.json());
+const app = express();
+const port = process.env.port || 9000;
+var cliente_router = require('./routes/cliente');
+var usuario_router = require('./routes/usuario');
 
-const port = 4201;
+app.use(bodyparser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyparser.json({limit: '50mb', extended: true}));
 
-const uri = process.env.MONGODB_URI;
-
-
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex:true,
-    useUnifiedTopology: true,
+// routes
+app.get("/", (req, res) => {
+    res.send("welcome to my API");
 });
 
-const connection = mongoose.connection;
-connection.once("open", () => {
-    console.log("Connected to MongoDB Atlas");
-})
+// mongodb connection
+mongoose
+.connect(process.env.MONGODB_URI)
+.then(() => console.log("Connected to MongoDB Atlas"))
+.catch((error) => console.error(error));
 
-app.listen(port,()=>{
-    console.log(`Listening on port ${port}`);
+app.listen(port, () => console.log('server listening on port', port));
+
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin','*'); 
+    res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods','GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Allow','GET, PUT, POST, DELETE, OPTIONS');
+    next();
 });
 
+app.use('/api',cliente_router);
+app.use('/api',usuario_router);
 
