@@ -112,7 +112,7 @@
                 password: this.password
             }
             axios.post(this.$url+'/login_usuario',data,{
-                heaers:{
+                headers:{
                     'Content-Type':'application/json'
                 }
             }).then((result)=>{
