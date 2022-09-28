@@ -42,7 +42,12 @@ const login_usuario = async function(req,res){
                 res.status(200).send({
                     token:jwt.createToken(usuarios[0]),
                     usuario: usuarios[0]
-                });
+                    });
+                console.log("\n"+
+                "\n"+"---- Bienvenido al panel administrador "+ usuarios[0].nombres+" ----"+
+                "\n        "+ "Email: " +usuarios[0].email+
+                "\n        "+ "Rol: " +usuarios[0].rol+
+                "\n------------------------------------------------");
             }else{
                 res.status(200).send({data:undefined,message:'La Contraseña es Incorrecta.'});
             }
