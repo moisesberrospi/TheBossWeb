@@ -9,7 +9,7 @@
     
         <!-- Brand -->
         <a class="navbar-brand" href="./index.html">
-           <img src="assets/img/logo.svg" class="navbar-brand-img mx-auto" alt="..."> 
+           <img src="/assets/img/logo.svg" class="navbar-brand-img mx-auto" alt="..."> 
         </a>
     
         <!-- User (xs) -->
@@ -21,7 +21,7 @@
             <!-- Toggle -->
             <a href="#" id="sidebarIcon" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="avatar avatar-sm avatar-online">
-                 <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="..."> 
+                 <img src="/assets/img/avatar-1.jpg" class="avatar-img rounded-circle" alt="..."> 
               </div>
             </a>
     
@@ -106,7 +106,7 @@
                 <!-- Toggle -->
                 <a href="#" id="sidebarIconCopy" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="avatar avatar-sm avatar-online">
-                     <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="..."> 
+                     <img src="/assets/img/avatar-1.jpg" class="avatar-img rounded-circle" alt="..." style="-webkit-mask-image: none;"> 
                   </div>
                 </a>
     
