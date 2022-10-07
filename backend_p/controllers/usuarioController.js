@@ -58,7 +58,19 @@ const login_usuario = async function(req,res){
     }
 }
 
+const listar_usuario_admin = async function (req,res){
+    if(req.user){
+
+        let usuarios = await Usuario.find();
+        res.status(200).send(usuarios);
+
+    }else{
+        res.status(500).send({data:undefined,message:'ErrorToken'});
+    }
+}
+
 module.exports = {
     registro_usuario_admin,
-    login_usuario
+    login_usuario,
+    listar_usuario_admin
 }

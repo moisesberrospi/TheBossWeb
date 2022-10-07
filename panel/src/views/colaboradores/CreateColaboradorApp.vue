@@ -32,12 +32,11 @@
                             <!-- Nav -->
                             <ul class="nav nav-tabs nav-overflow header-tabs">
                             <li class="nav-item">
-                                <a href="account-general.html" class="nav-link active">
-                                Todos los colaboradores
-                                </a>
+                                <router-link to="/colaborador/Index" class="nav-link">Todos los colaboradores</router-link>
+                                
                             </li>
                             <li class="nav-item">
-                                <a href="account-billing.html" class="nav-link">
+                                <a class="nav-link active">
                                     Nuevo colaborador
                                 </a>
                                 
@@ -50,9 +49,7 @@
                     </div>
                     </div>
 
-                    <!-- Form -->
-                    <form>
-
+                  
                 
 
                     <div class="row">
@@ -104,7 +101,7 @@
                             </small>
 
                             <!-- Input -->
-                            <input type="email" class="form-control">
+                            <input type="email" class="form-control" v-model="colaborador.email" placeholder="Correo Electrónico">
 
                         </div>
 
@@ -121,7 +118,8 @@
                             </label>
 
                             <!-- Input -->
-                            <select name="" class="form-select" id="">
+                            <select name="" class="form-select" v-model="colaborador.rol">
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option value="Administrador">Administrador</option>
                                 <option value="Vendedor">Vendedor</option>
                                 <option value="Inventariado">Inventariado</option>
@@ -140,12 +138,12 @@
                     <hr class="my-5">
 
                     <!-- Button -->
-                    <button class="btn btn-primary">
-                        Save changes
+                    <button type="button" class="btn btn-primary" v-on:click="validar()">
+                        Crear Colaborador
                     </button>
 
 
-                    </form>
+                    
 
                     <br><br>
 
@@ -161,13 +159,89 @@
   // @ is an alias to /src
   import Sidebar from '@/components/Sidebar.vue';
   import TopNav from '@/components/TopNav.vue';
-
+  import axios from 'axios';
 
   
   export default {
     name: 'CreateColaboradorApp',
 
-    
+    data() {
+        return {
+            colaborador: {
+                rol:''
+            },
+        }
+    },
+
+    methods:{
+        validar(){
+           if(!this.colaborador.nombres){
+            this.$notify({
+                group: 'foo',
+                title: 'ERROR',
+                text: 'Ingrese los Nombres',
+                type: 'error'
+                });
+           }else if(!this.colaborador.apellidos){
+            this.$notify({
+                group: 'foo',
+                title: 'ERROR',
+                text: 'Ingrese los Apellidos',
+                type: 'error'
+                });
+            }else if(!this.colaborador.email){
+            this.$notify({
+                group: 'foo',
+                title: 'ERROR',
+                text: 'Ingrese el Email',
+                type: 'error'
+                });
+            }else if(!this.colaborador.rol){
+            this.$notify({
+                group: 'foo',
+                title: 'ERROR',
+                text: 'Seleccione el Cargo',
+                type: 'error'
+                });
+            }else{
+                this.crear_colaborador();
+            }
+            
+        },
+        crear_colaborador(){
+            axios.post(this.$url+'/registro_usuario_admin',this.colaborador,{
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': this.$token
+                }
+            }).then((result)=>{
+                console.log(result);
+                if(result.data.data = undefined){
+                    this.$notify({
+                    group: 'foo',
+                    title: 'ERROR',
+                    text: result.data.message,
+                    type: 'error'
+                    });
+                }else{
+                    this.$notify({
+                    group: 'foo',
+                    title: 'SUCCESS',
+                    text: 'Se Registró el nuevo Colaborador',
+                    type: 'success'
+                    });
+
+                    this.$router.push({name: 'colaborador-Index'});
+                }
+            }).catch((error)=>{
+                console.log(error);
+            });
+        }
+    },
+
+    mounted(){
+       
+    },
 
     components: {
     Sidebar,

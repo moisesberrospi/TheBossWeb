@@ -17,6 +17,7 @@ exports.decodeToken = function(req,res,next){
             var payload = jwt.decode(token,secret);
             console.log(payload);
         } catch (error) {
+            console.log(error);
             return res.status(403).send({message:'ErrorToken'});
         }
     }
