@@ -18,6 +18,9 @@ const registro_usuario_admin = async function(req,res){
             }else{
                 
                 data.password = hash;
+                data.email = data.email.toLowerCase();
+                data.nombres = data.nombres.toUpperCase();
+                data.apellidos = data.apellidos.toUpperCase();
                 let usuario = await Usuario.create(data);
                 res.status(200).send({data:usuario});
             }
@@ -31,7 +34,9 @@ const registro_usuario_admin = async function(req,res){
 }
 
 const login_usuario = async function(req,res){
+    
     var data = req.body;
+    data.email = data.email.toLowerCase();
     var usuarios = await Usuario.find({email: data.email});
     
     if(usuarios.length >= 1){

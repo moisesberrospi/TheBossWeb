@@ -103,6 +103,7 @@
                             <!-- Input -->
                             <input type="email" class="form-control" v-model="colaborador.email" placeholder="Correo Electrónico">
 
+
                         </div>
 
                         </div>
@@ -216,25 +217,27 @@
                 }
             }).then((result)=>{
                 console.log(result);
-                if(result.data.data = undefined){
+                console.log(result.data.data);
+                if(result.data.data == undefined){
                     this.$notify({
-                    group: 'foo',
-                    title: 'ERROR',
-                    text: result.data.message,
-                    type: 'error'
+                        group: 'foo',
+                        title: 'ERROR',
+                        text: result.data.message,
+                        type: 'error'
                     });
                 }else{
                     this.$notify({
-                    group: 'foo',
-                    title: 'SUCCESS',
-                    text: 'Se Registró el nuevo Colaborador',
-                    type: 'success'
+                        group: 'foo',
+                        title: 'SUCCESS',
+                        text: 'Se Registró el nuevo Colaborador',
+                        type: 'success'
                     });
 
                     this.$router.push({name: 'colaborador-Index'});
                 }
             }).catch((error)=>{
                 console.log(error);
+                
             });
         }
     },

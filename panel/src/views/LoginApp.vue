@@ -124,7 +124,7 @@
                     localStorage.setItem('token',result.data.token);
                     localStorage.setItem('user',JSON.stringify(result.data.usuario));
 
-                    this.$router.push({name: 'about'});
+                    this.$router.push({name: 'colaborador-Index'});
                }
             }).catch((error)=>{
                 console.log(error);
