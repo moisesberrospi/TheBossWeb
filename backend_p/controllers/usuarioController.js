@@ -64,9 +64,18 @@ const login_usuario = async function(req,res){
 }
 
 const listar_usuario_admin = async function (req,res){
+    
     if(req.user){
 
-        let usuarios = await Usuario.find();
+        let filtro = req.params['filtro'];
+
+        let usuarios = await Usuario.find({
+            $or: [
+                {nombres: new RegExp(filtro,'i'),},
+                {apellidos: new RegExp(filtro,'i'),},
+                {email: new RegExp(filtro,'i'),},
+            ]
+        });
         res.status(200).send(usuarios);
 
     }else{
@@ -74,8 +83,30 @@ const listar_usuario_admin = async function (req,res){
     }
 }
 
+const obtener_usuario_admin = async function (req,res){
+    if(req.user){
+
+        let id = req.params['id'];
+
+        try {
+            let usuario = await Usuario.findById({_id:id});
+      
+            res.status(200).send(usuario);
+        } catch (error) {
+            res.status(200).send(undefined);
+        }
+
+
+
+    }else{
+        res.status(500).send({data:undefined,message:'ErrorToken'});
+    }
+
+}
+
 module.exports = {
     registro_usuario_admin,
     login_usuario,
-    listar_usuario_admin
+    listar_usuario_admin,
+    obtener_usuario_admin
 }

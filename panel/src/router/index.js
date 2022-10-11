@@ -11,6 +11,7 @@ const routes = [
   {path: '/',name: 'login',component: LoginApp},
   {path: '/colaborador/Index',name: 'colaborador-Index',component: IndexColaboradorApp},
   {path: '/colaborador/create',name: 'colaborador-create',component: CreateColaboradorApp},
+  {path: '/colaborador/edit/:id',name: 'colaborador-edit',component: ()=>import('@/views/colaboradores/EditColaboradorApp.vue')},
   {path: '/about',name: 'about'}
 ]
 
