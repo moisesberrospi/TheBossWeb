@@ -41,23 +41,27 @@ const login_usuario = async function(req,res){
     
     if(usuarios.length >= 1){
         //correo existe
-        bcrypt.compare(data.password, usuarios[0].password, async function(err,check){
-            if(check){
-                //
-                res.status(200).send({
-                    token:jwt.createToken(usuarios[0]),
-                    usuario: usuarios[0]
-                    });
-                console.log("\n"+
-                "\n"+"---- Bienvenido al panel administrador "+ usuarios[0].nombres+" ----"+
-                "\n        "+ "Email: " +usuarios[0].email+
-                "\n        "+ "Rol: " +usuarios[0].rol+
-                "\n------------------------------------------------");
-            }else{
-                res.status(200).send({data:undefined,message:'La Contraseña es Incorrecta.'});
-            }
-            
-        });
+        if(usuarios[0].estado){
+            bcrypt.compare(data.password, usuarios[0].password, async function(err,check){
+                if(check){
+                    //
+                    res.status(200).send({
+                        token:jwt.createToken(usuarios[0]),
+                        usuario: usuarios[0]
+                        });
+                    console.log("\n"+
+                    "\n"+"---- Bienvenido al panel administrador "+ usuarios[0].nombres+" ----"+
+                    "\n        "+ "Email: " +usuarios[0].email+
+                    "\n        "+ "Rol: " +usuarios[0].rol+
+                    "\n------------------------------------------------");
+                }else{
+                    res.status(200).send({data:undefined,message:'La Contraseña es Incorrecta.'});
+                }
+                
+            });
+        }else{
+            res.status(200).send({data:undefined,message:'Su cuenta esta desactivada.'});
+        }
     }else{
         res.status(200).send({data:undefined,message:'No se encontro el correo electrónico.'});
     }
@@ -104,9 +108,61 @@ const obtener_usuario_admin = async function (req,res){
 
 }
 
+const actualizar_usuario_admin = async function (req,res){
+    if(req.user){
+
+        let id = req.params['id'];
+
+        let data = req.body;
+
+        let usuario = await Usuario.findByIdAndUpdate({_id:id},{
+            nombres: data.nombres,
+            apellidos: data.apellidos,
+            rol: data.rol,
+            email: data.email,
+        });
+
+        res.status(200).send(usuario);
+
+    }else{
+        res.status(500).send({data:undefined,message:'ErrorToken'});
+    }
+
+}
+
+const cambiar_estado_usuario_admin = async function (req,res){
+    if(req.user){
+
+        let id = req.params['id'];
+
+        let data = req.body;
+
+        let nuevo_estado = false;
+
+        if(data.estado){
+            nuevo_estado = false;
+        }else{
+            nuevo_estado = true;
+        }
+
+        let usuario = await Usuario.findByIdAndUpdate({_id:id},{
+            estado: nuevo_estado,
+           
+        });
+
+        res.status(200).send(usuario);
+
+    }else{
+        res.status(500).send({data:undefined,message:'ErrorToken'});
+    }
+
+}
+
 module.exports = {
     registro_usuario_admin,
     login_usuario,
     listar_usuario_admin,
-    obtener_usuario_admin
+    obtener_usuario_admin,
+    actualizar_usuario_admin,
+    cambiar_estado_usuario_admin
 }
