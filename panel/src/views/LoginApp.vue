@@ -11,7 +11,7 @@
 
           <!-- Subheading -->
           <p class="text-muted text-center mb-5">
-            Panel administrador
+            THE BOSS COMPANY
           </p>
 
           <!-- Form -->

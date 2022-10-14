@@ -114,6 +114,9 @@ const actualizar_usuario_admin = async function (req,res){
         let id = req.params['id'];
 
         let data = req.body;
+        data.email = data.email.toLowerCase();
+        data.nombres = data.nombres.toUpperCase();
+        data.apellidos = data.apellidos.toUpperCase();
 
         let usuario = await Usuario.findByIdAndUpdate({_id:id},{
             nombres: data.nombres,
