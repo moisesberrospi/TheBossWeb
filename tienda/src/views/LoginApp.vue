@@ -51,19 +51,25 @@
                         <form action="customer-orders.html" method="get">
                         <div class="mb-4">
                             <label class="form-label" for="name">Nombres Completos</label>
-                            <input class="form-control" id="name" type="text" placeholder="Nombres Completos">
+                            <input class="form-control" id="name" type="text" placeholder="Nombres Completos" v-model="cliente.nombres">
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="email">Correo Electrónico</label>
-                            <input class="form-control" id="email" type="text" placeholder="Correo Electrónico">
+                            <input class="form-control" id="email" type="text" placeholder="Correo Electrónico" v-model="cliente.email">
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="password">Contraseña</label>
-                            <input class="form-control" id="password" type="password" placeholder="Contraseña">
+                            <input class="form-control" id="password" type="password" placeholder="Contraseña" v-model="cliente.password">
                         </div>
+
+                        <div class="mb-4" v-if="msm_error">
+                            <small class="text-danger ">{{msm_error}}</small>
+                        </div>
+
                         <div class="mb-4 text-center">
-                            <button class="btn btn-outline-dark" type="button"><i class="far fa-user me-2"></i>Registrar                               </button>
+                            <button class="btn btn-outline-dark" type="button" v-on:click="validar_registro()"><i class="far fa-user me-2"></i>Registrar                               </button>
                         </div>
+
                         </form>
                     </div>
                     </div>
@@ -75,7 +81,39 @@
 </template>
 
 <script>
+
+    import axios from 'axios';
+
     export default {
-        name:'LoginApp'
+        name:'LoginApp',
+        data(){
+            return{
+                cliente: {},
+                msm_error:''
+            }
+        },
+
+        methods: {
+            validar_registro(){
+                if(!this.cliente.nombres){
+                    this.msm_error = 'Ingrese los nombres por favor.'
+                }else if(!this.cliente.email){
+                    this.msm_error = 'Ingrese el correo electrónico por favor.'
+                }else if(!this.cliente.password){
+                    this.msm_error = 'Ingrese la contraseña por favor.'
+            }else{
+                this.msm_error = '';
+                axios.post(this.$url+'/registro_cliente_ecommerce',this.cliente,{
+                    headers: {
+                        'Content-Type':'application/json'
+                    }
+                }).then((result)=>{
+                    console.log(result);
+                })
+            }
+            console.log(this.cliente); 
+        },
+    },
+    
     }
 </script>
