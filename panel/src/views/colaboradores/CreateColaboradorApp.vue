@@ -213,7 +213,7 @@
             axios.post(this.$url+'/registro_usuario_admin',this.colaborador,{
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': this.$token
+                    'Authorization': this.$store.state.token
                 }
             }).then((result)=>{
                 console.log(result);

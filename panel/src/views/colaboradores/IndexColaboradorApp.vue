@@ -225,6 +225,7 @@
 import Sidebar from '@/components/Sidebar.vue';
 import TopNav from '@/components/TopNav.vue';
 import axios from 'axios';
+import store from '@/store/index';
 
 export default {
   name: 'IndexColaboradorApp',
@@ -278,7 +279,7 @@ export default {
       axios.get(this.$url+'/listar_usuario_admin/'+this.filtro,{
       headers:{
         'Content-Type': 'application/json',
-        'Authorization': this.$token
+        'Authorization': store.state.token
       }
       }).then((result)=>{
       this.colaboradores = result.data;
