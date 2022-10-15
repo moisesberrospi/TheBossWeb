@@ -22,7 +22,7 @@
   
                                       <!-- Title -->
                                       <h1 class="header-title">
-                                      Nuevo producto
+                                      Editar producto
                                       </h1>
   
                                   </div>
@@ -33,11 +33,10 @@
                                       <!-- Nav -->
                                       <ul class="nav nav-tabs nav-overflow header-tabs">
                                       <li class="nav-item">
-
-                                        <router-link class = "nav-link" to ="/producto">Todos los productos</router-link>
+                                          <router-link class="nav-link" to="/producto">Todos los productos</router-link>
                                       </li>
                                       <li class="nav-item">
-                                          <a class="nav-link">Nuevo producto</a>
+                                          <a class="nav-link active">Editar producto</a>
                            
                                           
                                       </li>
@@ -146,7 +145,7 @@
                                       </label>
   
                                       <!-- Input -->
-                                      <input type="number" class="form-control" placeholder="Precio" v-model="producto.precio">
+                                      <input type="number" readonly class="form-control" placeholder="Precio" v-model="producto.precio">
   
                                   </div>
   
@@ -255,7 +254,7 @@
   
                               <!-- Button -->
                               <button class="btn btn-primary" v-on:click="validar()">
-                                  Crear producto
+                                  Actualizar producto
                               </button>
   
   
@@ -280,7 +279,7 @@
   import axios from 'axios';
   
   export default {
-    name: 'CreateProductoApp',
+    name: 'EditProductoApp',
     components: {
       Sidebar,
       TopNav
@@ -298,6 +297,17 @@
         }
     },
     methods: {
+        init_data(){
+            axios.get(this.$url+'/obtener_producto_admin/'+this.$route.params.id,{
+                headers:{
+                     'Content-Type': 'application/json',
+                      'Authorization': this.$store.state.token,
+                }
+            }).then((result)=>{
+                this.producto = result.data;
+                this.str_image = this.$url+'/obtener_portada_producto/'+this.producto.portada;
+            });
+        },
         uploadImage($event){
   
               var image;
@@ -313,11 +323,12 @@
                       this.producto.portada = this.portada;
                  }else{
                      this.$notify({
-                      group: 'foo',
-                      title: 'ERROR',
-                      text: 'El recurso debe ser imagen.',
-                      type: 'error'
-                  });
+                          group: 'foo',
+                          title: 'ERROR',
+                          text: 'El recurso debe ser imagen.',
+                          type: 'error'
+                      });
+                      this.portada = undefined;
                  }
               }else{
                   this.$notify({
@@ -326,6 +337,7 @@
                       text: 'La imagen debe pesar menos de 1MB',
                       type: 'error'
                   });
+                  this.portada = undefined;
               }
             
         },
@@ -344,13 +356,6 @@
                       text: 'Seleccione la categoria del producto',
                       type: 'error'
                   });
-              }else if(!this.producto.precio){
-                  this.$notify({
-                      group: 'foo',
-                      title: 'ERROR',
-                      text: 'Ingrese el precio del producto',
-                      type: 'error'
-                  });
               }else if(!this.producto.extracto){
                   this.$notify({
                       group: 'foo',
@@ -366,32 +371,58 @@
                       type: 'error'
                   });
               }else{
-                  this.registro();
+                  this.actualizar();
               }
             
         },
   
-        registro(){
-            var fm = new FormData();
-            fm.append('titulo',this.producto.titulo);
-            fm.append('categoria',this.producto.categoria);
-            fm.append('precio',this.producto.precio);
-            fm.append('extracto',this.producto.extracto);
-            fm.append('estado',this.producto.estado);
-            fm.append('descuento',this.producto.descuento);
-            fm.append('portada',this.producto.portada); //IMAGEN
+        actualizar(){
+            var data;
+            var content = '';
+            if(this.portada != undefined){
+              content = 'multipart/form-data';
+              data = new FormData();
+              fm.append('titulo',this.producto.titulo);
+              fm.append('categoria',this.producto.categoria);
+              fm.append('extracto',this.producto.extracto);
+              fm.append('estado',this.producto.estado);
+              fm.append('descuento',this.producto.descuento);
+              fm.append('portada',this.producto.portada); //IMAGEN
+            }else{
+                content = 'application/json';
+                data = this.producto;
+            }
   
-            axios.post(this.$url+'/registro_producto_admin',fm,{
+            axios.put(this.$url+'/actualizar_producto_admin/'+this.$route.params.id,data,{
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    'Content-Type': content,
                     'Authorization' : this.$store.state.token
                 }
             }).then((result)=>{
-              console.log(result);
+                
+                if(result.data.message){
+                  this.$notify({
+                      group: 'foo',
+                      title: 'ERROR',
+                      text: result.data.message,
+                      type: 'error'
+                  });
+                }else{
+                    this.$notify({
+                      group: 'foo',
+                      title: 'SUCCESS',
+                      text: 'Se actualizó el producto.',
+                      type: 'success'
+                  });
+                }
+                
             })
   
   
         }
+    },
+    beforeMount() {
+        this.init_data();
     },
   }
   </script>
