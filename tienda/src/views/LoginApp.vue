@@ -1,0 +1,81 @@
+<template>
+    <div>
+        <section class="hero" style="margin-top: 11rem;">
+            <div class="container">
+               
+                <!-- Hero Content-->
+                <div class="hero-content pb-5 text-center">
+                <h1 class="hero-heading mb-0">Customer zone</h1>
+                </div>
+            </div>
+            </section>
+            <!-- customer login-->
+            <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="block">
+                    <div class="block-header">
+                        <h6 class="text-uppercase mb-0">Iniciar Sesión</h6>
+                    </div>
+                    <div class="block-body">
+                        
+                        <p class="text-muted">Inicia sesión para poder realizar compras.</p>
+                        <hr>
+                        <form action="customer-orders.html" method="get">
+                        <div class="mb-4">
+                            <label class="form-label" for="email1">Correo Electrónico</label>
+                            <input class="form-control" id="email1" type="text" placeholder="Correo Electrónico" autocomplete="off">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="password1">Contraseña</label>
+                            <input class="form-control" id="password1" type="password" placeholder="Contraseña" autocomplete="off">
+                        </div>
+                        <div class="mb-4 text-center">
+                            <button class="btn btn-outline-dark" type="button"><i class="fa fa-sign-in-alt me-2"></i> Ingresar</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="block">
+                    <div class="block-header">
+                        <h6 class="text-uppercase mb-0">Nueva Cuenta</h6>
+                    </div>
+                    <div class="block-body"> 
+                        
+                        <p class="text-muted">Registrate para obtener grandes beneficios</p>
+                       
+                        <hr>
+                        <form action="customer-orders.html" method="get">
+                        <div class="mb-4">
+                            <label class="form-label" for="name">Nombres Completos</label>
+                            <input class="form-control" id="name" type="text" placeholder="Nombres Completos">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="email">Correo Electrónico</label>
+                            <input class="form-control" id="email" type="text" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="password">Contraseña</label>
+                            <input class="form-control" id="password" type="password" placeholder="Contraseña">
+                        </div>
+                        <div class="mb-4 text-center">
+                            <button class="btn btn-outline-dark" type="button"><i class="far fa-user me-2"></i>Registrar                               </button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </section>
+        </div>
+</template>
+
+<script>
+    export default {
+        name:'LoginApp'
+    }
+</script>
