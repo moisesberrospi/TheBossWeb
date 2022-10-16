@@ -6,6 +6,7 @@ var ClienteSchema = Schema({
     apellidos : {type: String, required: false},
     email : {type: String, required: true, unique: true},
     password : {type: String, required: true},
+    estado : {type: Boolean, default: true},
     pais : {type: String, required: false},
     recovery : {type: String, required: false},
     genero : {type: String, required: false},
