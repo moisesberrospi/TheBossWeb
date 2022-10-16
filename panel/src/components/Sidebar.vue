@@ -92,7 +92,7 @@
 
         <ul class="navbar-nav mb-md-4">
             <li class="nav-item">
-            <router-link to="/producto/create" class="nav-link" active-class="active">
+            <router-link to="/producto" class="nav-link" active-class="active">
               <i class="fe fe-shopping-cart"></i> Productos
             </router-link>
           </li>
