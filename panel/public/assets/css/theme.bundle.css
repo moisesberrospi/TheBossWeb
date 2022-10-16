@@ -8548,6 +8548,12 @@ textarea.form-control-lg {
     color: #95aac9 !important
 }
 
+.text-tbc {
+    --bs-text-opacity: 1;
+    font-feature-settings: "ss01";
+    color: rgba(18, 38, 63, .5) !important
+}
+
 .text-black-50 {
     --bs-text-opacity: 1;
     color: rgba(18, 38, 63, .5) !important

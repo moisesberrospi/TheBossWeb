@@ -10,7 +10,7 @@
           </h1>
 
           <!-- Subheading -->
-          <p class="text-muted text-center mb-5">
+          <p class="text-tbc text-center mb-5">
             THE BOSS COMPANY
           </p>
 
@@ -30,7 +30,7 @@
               </label>
 
               <!-- Input -->
-              <input type="email" class="form-control" v-model="email" placeholder="name@address.com">
+              <input type="email" class="form-control" v-model="email" placeholder="name@thebosscompany.com">
 
             </div>
 
@@ -52,7 +52,7 @@
               <div class="input-group input-group-merge">
 
                 <!-- Input -->
-                <input class="form-control" v-model="password" type="password" placeholder="Enter your password">
+                <input class="form-control" v-model="password" type="password" placeholder="Ingrese su contraseña">
 
                 <!-- Icon -->
                 <span class="input-group-text">

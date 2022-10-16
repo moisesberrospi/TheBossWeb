@@ -241,6 +241,18 @@ const eliminar_variedad_producto = async function(req,res){
     }
 }
 
+const listar_activos_productos_admin = async function(req,res){
+    if(req.user){
+
+        let productos = await Producto.find({
+            estado:true
+        }).sort({createdAt:-1});
+        res.status(200).send(productos);
+
+    }else{
+        res.status(500).send({data:undefined,message: 'ErrorToken'});
+    }
+}
 module.exports = {
     registro_producto_admin,
     listar_productos_admin,
@@ -249,5 +261,6 @@ module.exports = {
     actualizar_producto_admin,
     registro_variedad_producto,
     obtener_variedades_producto,
-    eliminar_variedad_producto
+    eliminar_variedad_producto,
+    listar_activos_productos_admin
 }

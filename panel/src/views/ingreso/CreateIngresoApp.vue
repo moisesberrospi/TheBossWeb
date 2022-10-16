@@ -142,7 +142,7 @@
                                 <h3><b>Productos del ingreso</b></h3>
                             </div>
 
-                            <div class="col-12 col-md-4">
+                            <div class="col-12 col-md-6">
 
                             <!-- First name -->
                             <div class="form-group">
@@ -151,20 +151,44 @@
                                 <label class="form-label">
                                 Producto
                                 </label>
-                                <!-- Input -->
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Buscar producto">
-                                    <button class="btn btn-primary">
-                                        <i class="fe fe-search"></i>
-                                    </button>
-                                </div>
+                                <small class="form-text text-muted">
+                                    Selección de un producto
+                                </small>
+                                    <!-- object value -->
+                                    <basic-select :options="productos"
+                                                            v-model="producto"
+                                                            :selected-option="producto"
+                                                            placeholder="Selecciona un producto"
+                                                            @select="producto_selected">
+                                    </basic-select>
+
+                            </div>
+
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                            <!-- First name -->
+                            <div class="form-group">
+
+                                <!-- Label -->
+                                <label class="form-label">
+                                Variedad
+                                </label>
+                                <small class="form-text text-muted">
+                                    Selección de variedad.
+                                </small>
+                                    <!-- object value -->
+                                    <!-- <model-select :options="productos"
+                                                            v-model="producto"
+                                                            placeholder="select item">
+                                    </model-select> -->
 
                             </div>
 
                             </div>
 
 
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-6">
 
                             <!-- Phone -->
                             <div class="form-group">
@@ -173,13 +197,16 @@
                                 <label class="form-label">
                                 Precio unidad
                                 </label>
+                                <small class="form-text text-muted">
+                                    Precio por unidad pagado.
+                                </small>
                                 <!-- Input -->
                                 <input type="text" class="form-control mb-3" placeholder="0.00">
 
                             </div>
 
                             </div>
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-6">
 
                             <!-- Birthday -->
                             <div class="form-group">
@@ -188,6 +215,9 @@
                                 <label class="form-label">
                                 Cantidad total
                                 </label>
+                                <small class="form-text text-muted">
+                                    Cantidad total comprada.
+                                </small>
                                 <!-- Input -->
                                 <input type="number" class="form-control mb-3" placeholder="0">
 
@@ -195,9 +225,9 @@
 
                             </div>
 
-                            <div class="col-md-2">
+                            <div class="col-md-12">
                                 
-                                <button class="btn btn-primary" style="margin-top: 1.8rem!important;">
+                                <button class="btn btn-primary" style="margin-bottom: 1.8rem!important;">
                                     Agregar
                                 </button>
                             </div>
@@ -257,6 +287,8 @@ Ingresar datos
   
   import Sidebar from '@/components/Sidebar.vue';
   import TopNav from '@/components/TopNav.vue';
+  import axios from 'axios';
+  import { BasicSelect } from 'vue-search-select';
   
   export default {
     name: 'CreateIngresoApp',
@@ -266,45 +298,74 @@ Ingresar datos
                 proveedor: ''
             },
             comprobante: undefined,
+            producto: {},
+            productos:[]
         }
     },
     methods: {
-                uploadComprobante($event){
-  
-                        var image;
-            
-                        if($event.target.files.length >= 1){
-                            image = $event.target.files[0];
-                        }
-            
-                        if(image.size <= 1000000){
-                            if(image.type == 'image/jpeg'||image.type == 'image/png'||image.type == 'image/webp'||image.type == 'image/jpg'||image.type == 'application/pdf'){
-                                this.comprobante = image;
-                                this.ingreso.documento = this.comprobante;
-                            }else{
-                                this.$notify({
-                                group: 'foo',
-                                title: 'ERROR',
-                                text: 'El recurso debe ser imagen.',
-                                type: 'error'
-                            });
-                            this.comprobante = undefined;
-                            }
-                        }else{
-                            this.$notify({
-                                group: 'foo',
-                                title: 'ERROR',
-                                text: 'La imagen debe pesar menos de 1MB',
-                                type: 'error'
-                            });
-                            this.comprobante = undefined;
-                        }
-                        
-                    },
+        uploadComprobante($event){
+
+                var image;
+
+                if($event.target.files.length >= 1){
+                    image = $event.target.files[0];
+                }
+
+                if(image.size <= 1000000){
+                    if(image.type == 'image/jpeg'||image.type == 'image/png'||image.type == 'image/webp'||image.type == 'image/jpg'||image.type == 'application/pdf'){
+                        this.comprobante = image;
+                        this.ingreso.documento = this.comprobante;
+                    }else{
+                        this.$notify({
+                        group: 'foo',
+                        title: 'ERROR',
+                        text: 'El recurso debe ser imagen.',
+                        type: 'error'
+                    });
+                    this.comprobante = undefined;
+                    }
+                }else{
+                    this.$notify({
+                        group: 'foo',
+                        title: 'ERROR',
+                        text: 'La imagen debe pesar menos de 1MB',
+                        type: 'error'
+                    });
+                    this.comprobante = undefined;
+                }
+                
             },
+
+        init_productos(){
+        // this.productos = [];
+            axios.get(this.$url+'/listar_activos_productos_admin',{
+                    headers:{
+                      'Content-Type': 'application/json',
+                      'Authorization': this.$store.state.token,
+                    }
+            }).then((result)=>{
+                for(var item of result.data){
+                    this.productos.push({
+                        value: item._id,
+                        text: item.titulo
+                        });
+                    }
+                });
+        },
+
+        producto_selected(item){
+            console.log(item);
+        }
+    },
+
+    beforeMount(){
+        this.init_productos();
+    },
+
     components: {
       Sidebar,
-      TopNav
+      TopNav,
+      BasicSelect
     }
   }
   </script>
