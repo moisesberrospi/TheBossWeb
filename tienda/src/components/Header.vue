@@ -35,7 +35,7 @@
       </div>
       <!-- Top Bar End-->
       <!-- Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-sticky navbar-airy navbar-dark bg-fixed-white navbar-fixed-light" style="background: #005f96 !important;">
+      <nav class="navbar navbar-expand-lg navbar-sticky navbar-airy navbar-dark bg-fixed-white navbar-fixed-light" style="background: #000000 !important;">
         <div class="container-fluid">  
           <!-- Navbar Header  -->
           <a class="navbar-brand"  style="color:white !important" href="index.html"><svg class="navbar-brand-svg" viewBox="0 0 65 16" width="85" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,10 +209,11 @@
                 </div>
                 <!-- User Not Logged - link to login page-->
                 <div class="nav-item">
-                    <a class="navbar-icon-link" href="customer-login.html">
-                        <img src="/assets/icons/user.png" style="width: 25px;" />
-                        <span class="text-sm ms-2 ms-lg-0 text-uppercase text-sm fw-bold d-none d-sm-inline d-lg-none">Log in </span>
-                    </a>
+                    
+                    <router-link class="navbar-icon-link" to="/login">
+                      <img src="/assets/icons/user.png" style="width: 25px;" />
+                      <span class="text-sm ms-2 ms-lg-0 text-uppercase text-sm fw-bold d-none d-sm-inline d-lg-none">Log in </span>
+                    </router-link>
                 </div>
                 <!-- Cart Dropdown-->
                 <div class="nav-item dropdown">

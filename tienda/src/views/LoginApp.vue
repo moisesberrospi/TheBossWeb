@@ -25,14 +25,19 @@
                         <form action="customer-orders.html" method="get">
                         <div class="mb-4">
                             <label class="form-label" for="email1">Correo Electrónico</label>
-                            <input class="form-control" id="email1" type="text" placeholder="Correo Electrónico" autocomplete="off">
+                            <input class="form-control" id="email1" type="text" placeholder="Correo Electrónico" autocomplete="off" v-model="email">
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="password1">Contraseña</label>
-                            <input class="form-control" id="password1" type="password" placeholder="Contraseña" autocomplete="off">
+                            <input class="form-control" id="password1" type="password" placeholder="Contraseña" autocomplete="off" v-model="password">
                         </div>
+
+                        <div class="mb-4" v-if="msm_error_login">
+                            <small class="text-danger ">{{msm_error_login}}</small>
+                        </div>
+
                         <div class="mb-4 text-center">
-                            <button class="btn btn-outline-dark" type="button"><i class="fa fa-sign-in-alt me-2"></i> Ingresar</button>
+                            <button class="btn btn-outline-dark" type="button" v-on:click="login()"><i class="fa fa-sign-in-alt me-2"></i> Ingresar</button>
                         </div>
                         </form>
                     </div>
@@ -89,7 +94,11 @@
         data(){
             return{
                 cliente: {},
-                msm_error:''
+                msm_error:'',
+
+                email:'',
+                password:'',
+                msm_error_login: ''
             }
         },
 
@@ -108,12 +117,50 @@
                         'Content-Type':'application/json'
                     }
                 }).then((result)=>{
-                    console.log(result);
+                    if(result.data.message){
+                        this.msm_error = result.data.message;
+                    }else{
+                        this.msm_error = '';
+                        console.log(result);
+                    }
+                    
                 })
             }
             console.log(this.cliente); 
         },
+
+        login(){
+            if(!this.email){
+                this.msm_error_login = 'Ingrese un correo electrónico';
+            }else if (!this.password){
+                this.msm_error_login = 'Ingrese una contraseña';
+            }else{
+                this.msm_error_login = '';
+                let data = {
+                email: this.email,
+                password: this.password
+            }
+            axios.post(this.$url+'/login_cliente',data,{
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then((result)=>{
+                console.log(result);
+
+                if(result.data.message){
+                    this.msm_error_login = result.data.message;
+                }else{
+                    this.$store.dispatch('saveToken',result.data.token);
+                    this.$router.push({name: 'home'});
+                }
+
+              
+                }).catch((error)=>{
+                    console.log(error);
+                });
+            }
+        }
     },
     
-    }
+}
 </script>
