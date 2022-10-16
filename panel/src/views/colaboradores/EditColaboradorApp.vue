@@ -248,7 +248,7 @@
                             type: 'success'
                         });
     
-                        this.$router.push({name: 'colaborador-Index'});
+                        this.$router.push({name: 'colaborador-index'});
              }).catch((error)=>{
                  console.log(error);
                  

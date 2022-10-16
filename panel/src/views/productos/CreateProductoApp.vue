@@ -426,7 +426,7 @@
                       type: 'success'
                   });
 
-                    this.$router.push({name:'producto-Index'});
+                    this.$router.push({name:'producto-index'});
 
                 }
             })
