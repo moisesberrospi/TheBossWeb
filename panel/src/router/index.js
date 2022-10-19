@@ -20,6 +20,8 @@ const routes = [
   {path: '/producto',name: 'producto-index',component: ()=>import('@/views/productos/IndexProductoApp.vue'),meta: { requiresAuth: true }},
   {path: '/producto/create',name: 'producto-create',component: ()=>import('@/views/productos/CreateProductoApp.vue'),meta: { requiresAuth: true }},
   {path: '/producto/edit/:id',name: 'producto-edit',component: ()=>import('@/views/productos/EditproductoApp.vue'),meta: { requiresAuth: true }},
+  {path: '/producto/galeria/:id',name: 'producto-galeria',component: ()=>import('@/views/productos/GaleriaProductoApp.vue'),meta: { requiresAuth: true }},
+
 
   {path: '/ingreso/create',name: 'ingreso-create',component: ()=>import('@/views/ingreso/CreateIngresoApp.vue'),meta: { requiresAuth: true }},
 

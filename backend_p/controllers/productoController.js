@@ -1,4 +1,5 @@
 var Producto = require('../models/producto');
+var Galeria = require('../models/galeria');
 var Variedad = require('../models/variedad');
 var Ingreso = require('../models/ingreso');
 var Ingreso_detalle = require('../models/ingreso_detalle');
@@ -115,7 +116,6 @@ const actualizar_producto_admin = async function(req,res){
                         let producto = await Producto.findByIdAndUpdate({_id:id},{
                             titulo: data.titulo,
                             categoria:data.categoria,
-                            subcategoria:data.subcategoria,
                             extracto: data.extracto,
                             estado: data.estado,
                             str_variedad: data.str_variedad,
@@ -134,7 +134,6 @@ const actualizar_producto_admin = async function(req,res){
                          let producto = await Producto.findByIdAndUpdate({_id:id},{
                              titulo: data.titulo,
                              categoria:data.categoria,
-                             subcategoria:data.subcategoria,
                              extracto: data.extracto,
                              estado: data.estado,
                              str_variedad: data.str_variedad,
@@ -164,7 +163,6 @@ const actualizar_producto_admin = async function(req,res){
                     let producto = await Producto.findByIdAndUpdate({_id:id},{
                         titulo: data.titulo,
                         categoria:data.categoria,
-                        subcategoria:data.subcategoria,
                         extracto: data.extracto,
                         estado: data.estado,
                         str_variedad: data.str_variedad,
@@ -183,7 +181,6 @@ const actualizar_producto_admin = async function(req,res){
                      let producto = await Producto.findByIdAndUpdate({_id:id},{
                          titulo: data.titulo,
                          categoria:data.categoria,
-                         subcategoria:data.subcategoria,
                          extracto: data.extracto,
                          estado: data.estado,
                          str_variedad: data.str_variedad,
@@ -336,6 +333,30 @@ const registro_ingreso_admin = async function(req,res){
     }
 }
 
+const subir_imagen_producto_admin = async function(req,res){
+    if(req.user){
+        let data = req.body;
+
+        //REGISTRO PRODUCTO
+        var img_path = req.files.imagen.path;
+        var str_img = img_path.split('\\');
+        var str_imagen = str_img[2];
+
+        ///
+
+        data.imagen = str_imagen;
+        try {
+            let imagen = await Galeria.create(data);
+            res.status(200).send(imagen);
+        } catch (error) {
+            console.log(error);
+            res.status(200).send({data:undefined,message: 'No se pudo crear el producto.'});   
+        }
+    }else{
+        res.status(500).send({data:undefined,message: 'ErrorToken'});
+    }
+}
+
 module.exports = {
     registro_producto_admin,
     listar_productos_admin,
@@ -346,5 +367,6 @@ module.exports = {
     obtener_variedades_producto,
     eliminar_variedad_producto,
     listar_activos_productos_admin,
-    registro_ingreso_admin
+    registro_ingreso_admin,
+    subir_imagen_producto_admin
 }
