@@ -167,7 +167,7 @@
                                       </label>
   
                                       <!-- Input -->
-                                      <input type="number" class="form-control" placeholder="Precio" v-model="producto.precio">
+                                      <input disabled type="number" class="form-control" placeholder="Precio" value = "0">
   
                                   </div>
   
@@ -367,13 +367,6 @@
                       text: 'Seleccione la categoria del producto',
                       type: 'error'
                   });
-              }else if(!this.producto.precio){
-                  this.$notify({
-                      group: 'foo',
-                      title: 'ERROR',
-                      text: 'Ingrese el precio del producto',
-                      type: 'error'
-                  });
               }else if(!this.producto.extracto){
                   this.$notify({
                       group: 'foo',
@@ -398,7 +391,6 @@
             var fm = new FormData();
             fm.append('titulo',this.producto.titulo);
             fm.append('categoria',this.producto.categoria);
-            fm.append('precio',this.producto.precio);
             fm.append('extracto',this.producto.extracto);
             fm.append('estado',this.producto.estado);
             fm.append('str_variedad',this.producto.str_variedad);

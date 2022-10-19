@@ -7,7 +7,7 @@ var IngresoSchema = Schema({
     documento : {type: String, required: true},//F
 
     monto_total : {type: String, required: true},//F
-    serie : {type: Number, required: true},//NF
+    serie : {type: Number, required: false},//NF
     monto_resultante : {type: String, required: true},//NF
     usuario: {type: Schema.ObjectId, ref: 'usuario', required: true},//NF
 
