@@ -115,6 +115,7 @@ const actualizar_producto_admin = async function(req,res){
                         let producto = await Producto.findByIdAndUpdate({_id:id},{
                             titulo: data.titulo,
                             categoria:data.categoria,
+                            subcategoria:data.subcategoria,
                             extracto: data.extracto,
                             estado: data.estado,
                             str_variedad: data.str_variedad,
@@ -133,6 +134,7 @@ const actualizar_producto_admin = async function(req,res){
                          let producto = await Producto.findByIdAndUpdate({_id:id},{
                              titulo: data.titulo,
                              categoria:data.categoria,
+                             subcategoria:data.subcategoria,
                              extracto: data.extracto,
                              estado: data.estado,
                              str_variedad: data.str_variedad,
@@ -162,6 +164,7 @@ const actualizar_producto_admin = async function(req,res){
                     let producto = await Producto.findByIdAndUpdate({_id:id},{
                         titulo: data.titulo,
                         categoria:data.categoria,
+                        subcategoria:data.subcategoria,
                         extracto: data.extracto,
                         estado: data.estado,
                         str_variedad: data.str_variedad,
@@ -180,6 +183,7 @@ const actualizar_producto_admin = async function(req,res){
                      let producto = await Producto.findByIdAndUpdate({_id:id},{
                          titulo: data.titulo,
                          categoria:data.categoria,
+                         subcategoria:data.subcategoria,
                          extracto: data.extracto,
                          estado: data.estado,
                          str_variedad: data.str_variedad,
