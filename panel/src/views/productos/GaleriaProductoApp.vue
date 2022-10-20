@@ -93,16 +93,19 @@
                                           
                                       </div> <!-- / .row -->
   
-                                      <div class="row listAlias">
-                                          <div class="col-12 col-md-6 col-xl-4">
+                                      <div class="row listAlias" v-if="!load_galeria">
+                                          <div class="col-12 col-md-6 col-xl-4" v-for="item in galeria">
                                               <div class="card">
                                                   <a href="project-overview.html">
-                                                      <img src="https://dashkit.goodthemes.co/assets/img/avatars/projects/project-1.jpg" alt="..." class="card-img-top">
+                                                      <img :src="$url+'/obtener_galeria_producto/'+item.imagen" alt="..." class="card-img-top">
                                                   </a>
                                                   <div class="card-footer card-footer-boxed">
                                                   <div class="row">
                                                       <div class="col text-center">
-                                                          <a href="" class="text-danger">Eliminar imagen</a>
+                                                          <a v-b-modal="'delete-'+item._id" style="cursor:pointer" class="text-danger">Eliminar imagen</a>
+                                                          <b-modal centered :id="'delete-'+item._id" title="BootstrapVue" title-html="<h4 class='card-header-title'><b>Eliminar imagen</b></h4>" @ok="eliminar(item._id)">
+                                                              <p class="my-4">{{item._id}}</p>
+                                                          </b-modal>
                                                       </div>
                                                       
                                                   </div> <!-- / .row -->
@@ -110,6 +113,12 @@
                                               </div>
                                           </div>
                                           
+                                      </div>
+  
+                                      <div class="row mt-5" v-if="load_galeria">
+                                          <div class="col-12 text-center">
+                                              <img src="/assets/img/reloj.gif" alt="" style="width:80px">
+                                          </div>
                                       </div>
   
                                   </div>
@@ -154,6 +163,8 @@
             str_image: '',
             data: false,
             load_data: true,
+            load_galeria: true,
+            galeria : [],
         }
     },
   
@@ -247,17 +258,57 @@
                               text: 'Se subio la imagen.',
                               type: 'success'
                           });
-                          
+                          this.init_galeria();
                           
                   }
               })
            }
   
   
+        },
+        init_galeria(){
+            this.load_galeria = true;
+            axios.get(this.$url+'/obtener_galeria_producto_admin/'+this.$route.params.id,{
+                headers:{
+                     'Content-Type': 'application/json',
+                      'Authorization': this.$store.state.token,
+                }
+            }).then((result)=>{
+                this.galeria = result.data;
+                this.load_galeria = false;
+               
+            });
+        },
+  
+        eliminar(id){
+            axios.delete(this.$url+'/eliminar_galeria_producto_admin/'+id,{
+                headers:{
+                     'Content-Type': 'application/json',
+                      'Authorization': this.$store.state.token,
+                }
+            }).then((result)=>{
+                if(result.data.message){
+                  this.$notify({
+                      group: 'foo',
+                      title: 'SUCCESS',
+                      text: result.data.message,
+                      type: 'error'
+                  });
+                }else{
+                    this.$notify({
+                      group: 'foo',
+                      title: 'SUCCESS',
+                      text: 'Se eliminó la imagen.',
+                      type: 'success'
+                  });
+                  this.init_galeria();
+                }
+            });
         }
     },
     beforeMount() {
         this.init_data();
+        this.init_galeria();
     },
   }
   </script>
