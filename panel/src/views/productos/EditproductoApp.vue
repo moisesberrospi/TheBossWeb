@@ -344,7 +344,7 @@
                               </div>
   
                               <div class="card">
-                                  <div class="card-body">
+                                  <div class="card-body" v-if="variedades.length >= 1">
   
                                       <!-- List group -->
                                       <div class="list-group list-group-flush my-n3">
@@ -395,6 +395,13 @@
                                   
                                       </div>
   
+                                  </div>
+                                  <div class="card-body" v-if="variedades.length == 0">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <img src="/assets/media/reloj.gif" alt="" style="width:80px">
+                                        </div>
+                                    </div>
                                   </div>
                               </div>
   
