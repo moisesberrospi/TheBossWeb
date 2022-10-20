@@ -11,6 +11,7 @@ const routes = [
     component: HomeView
   },
   {path: '/login',name: 'login',component: ()=> import('@/views/LoginApp.vue')},
+  {path: '/shop',name: 'shop',component: ()=> import('@/views/productos/IndexProductoApp.vue')},
 ]
 
 const router = new VueRouter({

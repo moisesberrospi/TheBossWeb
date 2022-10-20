@@ -8,26 +8,25 @@
               <ul class="list-inline topbar-text mb-0">
                 <li class="list-inline-item pe-3 me-0">
                   <img src="/assets/icons/telephone-bl.png" style="width: 16px;">
-                  020-800-456-747
+                  +51 999-777-888
                 </li>
-                <li class="list-inline-item px-3 border-start d-none d-lg-inline-block">Envios gratis desde $300</li>
+                <li class="list-inline-item px-3 border-start d-none d-lg-inline-block">Un estilo de vida
+          
+                </li>
               </ul>
             </div>
             <div class="col-sm-5 d-flex justify-content-end">
               <!-- Language Dropdown-->
-              <div class="dropdown border-end px-3"><a class="dropdown-toggle topbar-link" id="langsDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/gb.svg" alt="english">English</a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="langsDropdown"><a class="dropdown-item text-sm" href="#"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/de.svg" alt="german">German</a><a class="dropdown-item text-sm" href="#"> <img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/fr.svg" alt="french">French</a></div>
+              <div class="dropdown border-end px-3"><a class="dropdown-toggle topbar-link" id="langsDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/pe.svg" alt="español">Español</a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="langsDropdown"><a class="dropdown-item text-sm" href="#"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/us.svg" alt="english">English</a></div>
               </div>
               <!-- Currency Dropdown-->
-              <div class="dropdown ps-3 ms-0"><a class="dropdown-toggle topbar-link" id="currencyDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false">USD</a>
+              <div class="dropdown ps-3 ms-0"><a class="dropdown-toggle topbar-link" id="currencyDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false">PEN</a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="currencyDropdown">
                   <a class="dropdown-item text-sm" href="#"> 
-                    EUR
+                    USD
                   </a>
-                  <a class="dropdown-item text-sm" href="#">
-                    GBP
-                    </a>
-                </div>
+                 </div>
               </div>
             </div>
           </div>
@@ -46,17 +45,13 @@
           <!-- Navbar Collapse -->
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item"><a class="nav-link" href="">Inicio</a>
+              <li class="nav-item">
+                <router-link class="nav-link" to ="/">Inicio</router-link>
               </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="categoryDropdownMenuLink" href="category.html" data-bs-target="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departamentos</a>
-                  <div class="dropdown-menu dropdown-menu-animated" aria-labelledby="categoryDropdownMenuLink">
-                      <a class="dropdown-item" href="category.html">Category - left sidebar </a><a class="dropdown-item" href="category-right.html">Category - right sidebar </a>
-                      <a class="dropdown-item" href="category-no-sidebar.html">Category - no sidebar </a><a class="dropdown-item" href="category-full.html">Category - full width </a>
-                      <a class="dropdown-item" href="category-masonry.html">Category - masonry items </a><a class="dropdown-item" href="category-banner.html">Category - w/ banner </a><a class="dropdown-item" href="detail.html">Product detail </a>
-                      <a class="dropdown-item" href="detail-2.html">Product detail - v.2 </a><a class="dropdown-item" href="detail-3.html">Product detail - v.3 <span class="badge badge-warning ms-1">New</span> </a>
-                  </div>
+              <li class="nav-item">
+                <router-link class="nav-link" :to ="{name: 'shop'}">Tienda</router-link>
               </li>
+              
               <!-- Megamenu-->
               <li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown">Categorias</a>
                 <div class="dropdown-menu dropdown-menu-animated megamenu py-lg-0">
