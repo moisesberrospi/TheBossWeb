@@ -1,5 +1,5 @@
 <template>
-     <header class="header header-absolute">
+     <header class="header">
       <!-- Top Bar-->
       <div class="top-bar">
         <div class="container-fluid">
