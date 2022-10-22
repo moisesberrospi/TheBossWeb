@@ -3,14 +3,14 @@
     <section>
       <!-- Hero Slider-->
       <div class="owl-carousel owl-theme owl-dots-modern home-slider">
-        <div class="item d-flex align-items-center" style="background: #f8d5cf;"><img class="bg-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/photo/matheus-ferrero-334418-unsplash.jpg" alt="">
+        <div class="item d-flex align-items-center" style="background: #f8d5cf; layout-absolute"><img class="bg-image" src="/assets/img/glenn.jpg" alt="">
           <div class="container py-6">
             <div class="row">
               <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
-                <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"> Just arrived</h5>
-                <h1 class="mb-5 display-2 fw-bold text-serif">Denim Jackets</h1>
-                <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p> <a class="btn btn-light" href="category.html">View collection</a></p>
+                <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"> Se viene</h5>
+                <h1 class="mb-5 display-2 fw-bold text-techna-sans">THE BOSS <i>COMPANY</i></h1>
+                <p class="lead mb-4">Más que una marca, un estilo de vida</p>
+                <p> <a class="btn btn-light" href="category.html">New collection</a></p>
               </div>
             </div>
           </div>
