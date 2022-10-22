@@ -6,7 +6,7 @@
         <div class="item d-flex align-items-center" style="background: #f8d5cf; layout-absolute"><img class="bg-image" src="/assets/img/glenn.jpg" alt="">
           <div class="container py-6">
             <div class="row">
-              <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
+              <div class="col-lg-8 col-xl-6 mx-auto text-gray text-center position-relative">
                 <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"> Se viene</h5>
                 <h1 class="mb-5 display-2 fw-bold text-techna-sans">THE BOSS <i>COMPANY</i></h1>
                 <p class="lead mb-4">Más que una marca, un estilo de vida</p>
