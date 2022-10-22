@@ -92,8 +92,13 @@
 
         <ul class="navbar-nav mb-md-4">
             <li class="nav-item">
+            <router-link to="/categorias" class="nav-link" active-class="active">
+              <i class="fe fe-inbox"></i> Categorias
+            </router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/producto" class="nav-link" active-class="active">
-              <i class="fe fe-shopping-cart"></i> Productos
+              <i class="fe fe-package"></i> Productos
             </router-link>
           </li>
           <li class="nav-item">

@@ -11,7 +11,6 @@ Vue.config.productionTip = false;
 Vue.prototype.$url = 'http://localhost:9000/api';
 Vue.prototype.$ganancia = 30;
 Vue.prototype.$token = localStorage.getItem('token');
-Vue.prototype.$categorias = ['Ropa', 'Vapes']
 
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'vue-search-select/dist/VueSearchSelect.css'
