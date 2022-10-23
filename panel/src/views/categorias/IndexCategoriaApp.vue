@@ -101,7 +101,7 @@
                                           </div>
   
                                           <div class="input-group mt-4 hide_input content_group" :id="'content_'+item.categoria._id">
-                                              <input type="text" class="form-control" placeholder="Nueva categoria" v-model="nueva_subcategoria">
+                                              <input type="text" class="form-control" placeholder="Nueva Subcategoria" v-model="nueva_subcategoria">
                                               <button class="btn btn-dark" v-on:click="crear_subcategoria()">Crear subcategoría</button>
                                           </div>
   
