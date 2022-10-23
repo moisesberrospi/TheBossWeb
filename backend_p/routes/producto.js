@@ -27,6 +27,10 @@ api.delete('/eliminar_variedad_producto/:id',authenticate.decodeToken,productoCo
 //////////////////////////////////
 
 api.post('/registro_ingreso_admin',[authenticate.decodeToken,path_ingreso],productoController.registro_ingreso_admin);
+api.get('/obtener_ingresos_admin/:inicio/:hasta',authenticate.decodeToken,productoController.obtener_ingresos_admin);
+api.get('/obtener_comprobante_ingreso/:name',productoController.obtener_comprobante_ingreso);
+api.get('/obtener_detalles_ingreso_admin/:id',authenticate.decodeToken,productoController.obtener_detalles_ingreso_admin);
+
 
 //////////////////////////////////
 
