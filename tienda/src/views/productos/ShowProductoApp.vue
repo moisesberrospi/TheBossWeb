@@ -326,7 +326,7 @@ export default {
     return {
       galeria : [],
       variedades: [],
-      producto: {},
+      producto: {}, 
       productos_relaciones: [],
       obj_carrito : {
         cantidad: 1
