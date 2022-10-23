@@ -42,7 +42,7 @@ const registro_cliente_ecommerce = async function(req,res){
                                 cliente: clientes[0]
                                 });
                             console.log("\n"+
-                            "\n"+"---- Bienvenido al panel administrador "+ cliente[0].nombres+" ----"+
+                            "\n"+"---- Bienvenido al panel administrador "+ clientes[0].nombres+" ----"+
                             "\n        "+ "Email: " +clientes[0].email+
                             "\n------------------------------------------------");
                         }else{
