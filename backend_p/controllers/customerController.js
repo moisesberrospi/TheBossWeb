@@ -84,6 +84,6 @@ module.exports = {
     obtener_carrito_cliente,
     eliminar_producto_carrito,
     crear_direccion_cliente,
-    obternet_direcciones_cliente,
+    obtener_direcciones_cliente,
     eliminar_direccion_cliente
 }
