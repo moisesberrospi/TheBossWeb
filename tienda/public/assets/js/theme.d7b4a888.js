@@ -496,28 +496,49 @@ export const init_carousel = {
     init: function(){
        setTimeout(() => {
         $(".product-slider").owlCarousel({
-            loop: false,
-            margin: 0,
-            nav: false,
-            dots: true,
-            navText: [
-                '<img src="' + basePath + 'img/prev.svg" alt="" width="50">',
-                '<img src="' + basePath + 'img/next.svg" alt="" width="50">',
-            ],
-            smartSpeed: 400,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
+         });
+         console.log('hola');
+       }, 1000);
+    },
+    init_galeria: function(){
+        setTimeout(() =>{
+            $(".detail-slider").owlCarousel({
+                loop: true,
+                items: 1,
+                thumbs: true,
+                thumbsPrerendered: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        dots: true,
+                    },
+                    768: {
+                        items: 1,
+                        dots: false,
+                    },
                 },
-                600: {
-                    items: 2,
-                },
-                1000: {
-                    items: 5,
-                },
-            },
-        });
-       }, 50);
+            });   
+        },50);
+    },
+    init_zoom: function(){
+        setTimeout(() =>{
+            const lightbox = GLightbox({
+                touchNavigation: true,
+                //loop: true,
+                autoplayVideos: true,
+            });
+
+            // ------------------------------------------------------- //
+            //   Image zoom
+            // ------------------------------------------------------ //
+
+            $('[data-bs-toggle="zoom"]').each(function () {
+                $(this).zoom({
+                    url: $(this).attr("data-image"),
+                    duration: 0,
+                });
+            });
+        },50);
     }
 }

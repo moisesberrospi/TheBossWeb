@@ -12,6 +12,7 @@ const routes = [
   },
   {path: '/login',name: 'login',component: ()=> import('@/views/LoginApp.vue')},
   {path: '/shop',name: 'shop',component: ()=> import('@/views/productos/IndexProductoApp.vue')},
+   {path: '/producto/:slug',name: 'show-producto',component: ()=> import('@/views/productos/ShowProductoApp.vue')},
 ]
 
 const router = new VueRouter({
