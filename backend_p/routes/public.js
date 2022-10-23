@@ -8,9 +8,9 @@ api.get('/obtener_nuevos_productos',publicController.obtener_nuevos_productos);
 api.get('/obtener_productos_recomendados',publicController.obtener_productos_recomendados);
 api.get('/obtener_productos_shop',publicController.obtener_productos_shop);
 api.get('/listar_categorias_public',publicController.listar_categorias_public);
-
 api.get('/obtener_producto_slug/:slug',publicController.obtener_producto_slug);
 api.get('/obtener_producto_categoria/:categoria',publicController.obtener_producto_categoria);
+
 
 
 

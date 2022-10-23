@@ -80,43 +80,42 @@
                     <div class="sidebar-block px-3 px-lg-0 me-lg-4"><a class="d-lg-none block-toggler" data-bs-toggle="collapse" href="#categoriesMenu" aria-expanded="false" aria-controls="categoriesMenu">Categorias de productos</a>
                         <div class="expand-lg collapse" id="categoriesMenu">
                             <div class="nav nav-pills flex-column mt-4 mt-lg-0" role="menu">
-                                <div class="sidebar-menu-item mb-2 active" data-bs-toggle="collapse" data-bs-target="#subcategories_0" aria-expanded="true" aria-controls="subcategories_0" role="menuitem">
-                                    <a class="nav-link active" href="#!">
-                                        <div class="row">
-                                            <div class="col"><span>Jackets</span></div>
-                                            <div class="col" style="text-align: right !important;"><img src="/assets/media/arrow-down.png" style="width:10px" alt=""></div>
+                                <template v-for="(item,index) in categorias">
+                                    <div>
+                                        <!-- <div class="sidebar-menu-item mb-2 active" data-bs-toggle="collapse" data-bs-target="#subcategories_0" aria-expanded="true" aria-controls="subcategories_0" role="menuitem">
+                                            <a class="nav-link active" href="#!">
+                                                <div class="row">
+                                                    <div class="col"><span>Jackets</span></div>
+                                                    <div class="col" style="text-align: right !important;"><img src="/assets/media/arrow-down.png" style="width:10px" alt=""></div>
+                                                </div>
+                                                
+                                            </a>
                                         </div>
-                                        
-                                    </a>
-                                </div>
-                                <div class="collapse show" id="subcategories_0">
-                                    <div class="nav nav-pills flex-column ms-3"><a class="nav-link mb-2" href="#!">Lorem ipsum</a><a class="nav-link mb-2" href="#!">Dolor</a><a class="nav-link mb-2" href="#!">Sit amet</a><a class="nav-link mb-2" href="#!">Donec vitae</a>
-                                    </div>
-                                </div>
-                                <div class="sidebar-menu-item mb-2" data-bs-toggle="collapse" data-bs-target="#subcategories_1" aria-expanded="false" aria-controls="subcategories_1" role="menuitem">
-                                    <a class="nav-link " href="#!">
-                                        <div class="row">
-                                            <div class="col"><span>Jackets</span></div>
-                                            <div class="col" style="text-align: right !important;"><img src="/assets/media/arrow-down-dark.png" style="width:10px" alt=""></div>
+                                        <div class="collapse show" id="subcategories_0">
+                                            <div class="nav nav-pills flex-column ms-3"><a class="nav-link mb-2" href="#!">Lorem ipsum</a><a class="nav-link mb-2" href="#!">Dolor</a><a class="nav-link mb-2" href="#!">Sit amet</a><a class="nav-link mb-2" href="#!">Donec vitae</a>
+                                            </div>
+                                        </div> -->
+
+
+
+                                        <div class="sidebar-menu-item mb-2" data-bs-toggle="collapse" :data-bs-target="'#subcategories_'+index" aria-expanded="false" :aria-controls="'subcategories_'+index" role="menuitem">
+                                            <a class="nav-link " href="#!">
+                                                <div class="row">
+                                                    <div class="col"><span>{{item.categoria.titulo}}</span></div>
+                                                    <div class="col" style="text-align: right !important;"><img src="/assets/media/arrow-down-dark.png" style="width:10px" alt=""></div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="collapse" id="subcategories_1">
-                                    <div class="nav nav-pills flex-column ms-3"><a class="nav-link mb-2" href="#!">Lorem ipsum</a><a class="nav-link mb-2" href="#!">Dolor</a><a class="nav-link mb-2" href="#!">Sit amet</a><a class="nav-link mb-2" href="#!">Donec vitae</a>
-                                    </div>
-                                </div>
-                                <div class="sidebar-menu-item mb-2" data-bs-toggle="collapse" data-bs-target="#subcategories_2" aria-expanded="false" aria-controls="subcategories_2" role="menuitem">
-                                    <a class="nav-link " href="#!">
-                                        <div class="row">
-                                            <div class="col"><span>Jackets</span></div>
-                                            <div class="col" style="text-align: right !important;"><img src="/assets/media/arrow-down-dark.png" style="width:10px" alt=""></div>
+                                        <div class="collapse" :id="'subcategories_'+index">
+                                            <div class="nav nav-pills flex-column ms-3">
+                                             
+                                                <a style="cursor:pointer" class="nav-link mb-2" v-for="subitem in item.subcategorias" v-on:click="redirectSubcategoria(subitem.titulo)">{{subitem.titulo}}</a>
+
+                                            </div>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="collapse" id="subcategories_2">
-                                    <div class="nav nav-pills flex-column ms-3"><a class="nav-link mb-2" href="#!">Sit amet</a><a class="nav-link mb-2" href="#!">Donec vitae</a><a class="nav-link mb-2" href="#!">Lorem ipsum</a><a class="nav-link mb-2" href="#!">Dolor</a>
                                     </div>
-                                </div>
+                                </template>
+                                
                             </div>
                         </div>
                     </div>
@@ -256,6 +255,7 @@
                 maxRange: null,
                 productos: [],
                 productos_const: [],
+                categorias: [],
                 currentPage: 1,
                 perPage: 12,
                 get itemsForList(){
@@ -290,6 +290,7 @@
                 this.productos_const = this.productos;
                 console.log(this.productos);
             });
+            this.init_categorias();
         },
         methods: {
             convertCurrency(number){
@@ -311,6 +312,24 @@
                 if(this.sort_by == 'Precio -+'){
                     this.productos.sort((a,b)=>a.precio > b.precio ? 1:-1);
                 }
+            },
+            init_categorias(){
+                    axios.get(this.$url+'/listar_categorias_public',{
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then((result)=>{
+                    this.categorias = result.data;
+                    console.log(this.categorias);
+                });
+            },
+            redirectSubcategoria(item){
+                this.$router.push({name:'shop', query: {subcategoria: item}});
+                this.initProductosSubcategoria();
+            },
+            initProductosSubcategoria(){
+                console.log(this.$route.query.subcategoria);
+                this.producto = this.productos_const.filter(item=>item.subcategoria== this.$route.query.subcategoria);
             }
         },
     }
