@@ -9,6 +9,7 @@ var cliente_router = require('./routes/cliente');
 var usuario_router = require('./routes/usuario');
 var producto_router = require('./routes/producto');
 var public_router = require('./routes/public');
+var customer_router = require('./routes/customer');
 
 
 app.use(bodyparser.urlencoded({limit: '50mb', extended: true}));
@@ -39,4 +40,5 @@ app.use('/api',cliente_router);
 app.use('/api',usuario_router);
 app.use('/api',producto_router);
 app.use('/api',public_router);
+app.use('/api',customer_router);
 

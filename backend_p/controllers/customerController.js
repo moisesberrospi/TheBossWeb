@@ -58,7 +58,7 @@ const crear_direccion_cliente = async function(req,res){
     }
 }
 
-const obternet_direcciones_cliente = async function(req,res){
+const obtener_direcciones_cliente = async function(req,res){
     if(req.user){
       
        let direcciones = await Direccion.find({cliente:req.user.sub});

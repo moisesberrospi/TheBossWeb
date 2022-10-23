@@ -74,35 +74,47 @@
                     <span class="text-danger">{{msm_error}}</span>
                 </div>
 
-                <table class="table table-bordered table-striped" style="margin-top: 5rem !important;background: white !important;">
+                <table v-if="direcciones.length >= 1" class="table table-bordered table-striped" style="margin-top: 5rem !important;background: white !important;">
                     <thead class="table-dark">
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Receptor</th>
+                        <th scope="col">Localizacion</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Opciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                    <tbody >
+                        <tr v-for="item in direcciones">
+                            <th scope="row">
+                                <small>{{item.nombres}} {{item.apellidos}}</small> <br>
+                                 <small>{{item.telefono}}</small> 
+                            </th>
+                            <td>
+                                <small>{{item.pais}} {{item.ciudad}}</small> <br>
+                                 <small>{{item.zip}}</small> 
+                            </td>
+                            <td>{{item.direccion}}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" v-on:click="eliminar_direccion(item._id)">Eliminar</button>
+                            </td>
                         </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
+                       
                     </tbody>
+                    
                 </table>
+
+
+                <div class="card" v-if="direcciones.length == 0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img src="/assets/media/idea.gif" style="width:60px">
+                                <h3>Aun no tienes direcciones</h3>
+                                <span class="text-muted">Ingresa tu primer dirección</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Customer Sidebar-->
             <div class="col-xl-3 col-lg-4 mb-5">
@@ -143,10 +155,34 @@ export default {
             direccion: {
                 pais: ''
             },
-            msm_error:''
+            msm_error:'',
+            direcciones: []
         }
     },
+    beforeMount() {
+        this.init_direcciones();
+    },
     methods: {
+        init_direcciones(){
+            axios.get(this.$url+'/obtener_direcciones_cliente',{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': this.$store.state.token
+                }
+            }).then((result)=>{
+                this.direcciones = result.data;
+            });
+        },
+        eliminar_direccion(id){
+            axios.delete(this.$url+'/eliminar_direccion_cliente/'+id,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': this.$store.state.token
+                }
+            }).then((result)=>{
+                this.init_direcciones();
+            });
+        },
         crear_direccion(){
             if(!this.direccion.nombres){
                 this.msm_error = 'Ingrese los nombres por favor';
@@ -172,7 +208,10 @@ export default {
                     }
                 }).then((result)=>{
                     this.msm_error = '';
-                    console.log(result);
+                    this.direccion = {
+                        pais: ''
+                    },
+                    this.init_direcciones();
                 });
             }
            

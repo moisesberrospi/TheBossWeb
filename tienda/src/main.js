@@ -11,7 +11,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
-Vue.prototype.paises = ['Argentina','Chile','Perú','Bolivia','Colombia'];
+Vue.prototype.$paises = ['Argentina','Chile','Perú','Bolivia','Colombia'];
 Vue.prototype.$url = 'http://localhost:9000/api';
 Vue.prototype.$token = localStorage.getItem('token');
 Vue.use(BootstrapVue)
