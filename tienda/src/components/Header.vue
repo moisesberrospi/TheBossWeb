@@ -17,10 +17,8 @@
             </div>
             <div class="col-sm-5 d-flex justify-content-end">
               <!-- Language Dropdown-->
-
-              <a style="cursor:pointer" v-if="$store.state.token" v-on:click="logout()">
-                <spam><b>Cerrar sesión</b></spam>
-              </a>
+              <button v-on:click="click_event()">Click</button>
+              
 
               <div class="dropdown border-end px-3"><a class="dropdown-toggle topbar-link" id="langsDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/pe.svg" alt="español">Español</a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="langsDropdown"><a class="dropdown-item text-sm" href="#"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/us.svg" alt="english">English</a></div>
@@ -220,10 +218,18 @@
                       <img src="/assets/icons/user.png" style="width: 25px;" />
                       <span class="text-sm ms-2 ms-lg-0 text-uppercase text-sm fw-bold d-none d-sm-inline d-lg-none">Log in </span>
                     </router-link>
-                    <router-link v-if="$store.state.token" class="navbar-icon-link" to="/login">
+                    <a v-if="$store.state.token" class="navbar-icon-link dropdown">
                       <img src="/assets/icons/user.png" style="width: 25px;" />
-                      <span class="text-sm ms-2 ms-lg-0 text-uppercase text-sm fw-bold d-none d-sm-inline">&nbsp; {{user.nombres/*.split('')[0]*/}} </span>
-                    </router-link>
+                      <span class="text-sm ms-2 ms-lg-0 text-uppercase text-sm fw-bold d-none d-sm-inline dropdown-toggle" data-bs-target="#" data-bs-toggle="dropdown" aria-haspopup="true" 
+                        aria-expanded="false">&nbsp; {{user.nombres/*.split('')[0]*/}} 
+                      </span>
+
+                        <div class="dropdown-menu dropdown-menu-animated" aria-labelledby="categoryDropdownMenuLink" style="left: -50px !important;">
+                        <a class="dropdown-item" href="category.html">Category - left sidebar   </a>
+                        <a class="dropdown-item" href="category-right.html">Category - right sidebar   </a>
+                        <a class="dropdown-item" v-on:click="logout()">Cerrar Sesión  </a>
+                      </div>
+                    </a>
                 </div>
                 <!-- Cart Dropdown-->
                 <div class="nav-item dropdown">
@@ -234,54 +240,37 @@
                     <div class="d-none d-lg-block">
                         <a class="navbar-icon-link" id="cartdetails" href="cart.html" data-bs-target="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="/assets/icons/cart.png" style="width: 25px;" />
-                            <div class="navbar-icon-link-badge">3</div>
+                            <div class="navbar-icon-link-badge">{{carrito_lenght}}</div>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-animated dropdown-menu-end p-4" aria-labelledby="cartdetails">
-                            <div class="navbar-cart-product-wrapper">
+                        <div class="dropdown-menu dropdown-menu-animated dropdown-menu-end p-4" aria-labelledby="cartdetails" style="max-width: 350px !important">
+                            <div class="navbar-cart-product-wrapper" style=" overflow-x: hidden !important; max-height: 340px !important;">
                                 <!-- cart item-->
-                                <div class="navbar-cart-product">
+                                <div class="navbar-cart-product" v-for="item in carrito">
                                     <div class="d-flex align-items-center">
-                                        <a href="detail.html"><img class="img-fluid navbar-cart-product-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/product/product-square-ian-dooley-347968-unsplash.jpg" alt="..." /></a>
+                                        <a href="detail.html">
+                                          <img class="img-fluid navbar-cart-product-image" :src="$url+'/obtener_portada_producto/'+item.producto.portada" alt="..." /></a>
                                         <div class="w-100">
                                             <a class="navbar-cart-product-close" href="#">
                                               <img src="/assets/icons/close.png" style="width: 15px;" />
                                             </a>
-                                            <div class="ps-3"><a class="navbar-cart-product-link" href="detail.html">Skull Tee</a><small class="d-block text-muted">Quantity: 1 </small><strong class="d-block text-sm">$75.00 </strong></div>
+                                            <div class="ps-3">
+                                              <router-link :to="{name: 'show-producto',params:{slug: item.producto.slug}}" class="navbar-cart-product-link"  style="text-overflow:ellipsis;overflow: hidden;white-space: nowrap;">{{item.producto.titulo}}</router-link>
+                                              <small class="d-block text-muted">{{item.producto.str_variedad}}: {{item.variedad.variedad}} </small>
+                                              <small class="d-block text-muted">Cantidad: {{item.cantidad}} </small>
+                                              <strong class="d-block text-sm">{{convertCurrency(item.producto.precio*item.cantidad)}} </strong>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- cart item-->
-                                <div class="navbar-cart-product">
-                                    <div class="d-flex align-items-center">
-                                        <a href="detail.html"><img class="img-fluid navbar-cart-product-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/product/product-square-kyle-loftus-596319-unsplash.jpg" alt="..." /></a>
-                                        <div class="w-100">
-                                            <a class="navbar-cart-product-close" href="#">
-                                              <img src="/assets/icons/close.png" style="width: 15px;" />
-                                            </a>
-                                            <div class="ps-3"><a class="navbar-cart-product-link" href="detail.html">Transparent Blouse</a><small class="d-block text-muted">Quantity: 1 </small><strong class="d-block text-sm">$75.00 </strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- cart item-->
-                                <div class="navbar-cart-product">
-                                    <div class="d-flex align-items-center">
-                                        <a href="detail.html"><img class="img-fluid navbar-cart-product-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/product/product-square-serrah-galos-494312-unsplash.jpg" alt="..." /></a>
-                                        <div class="w-100">
-                                            <a class="navbar-cart-product-close" href="#">
-                                              <img src="/assets/icons/close.png" style="width: 15px;" />
-                                            </a>
-                                            <div class="ps-3"><a class="navbar-cart-product-link" href="detail.html">White Tee</a><small class="d-block text-muted">Quantity: 1 </small><strong class="d-block text-sm">$75.00 </strong></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                  </div>
+
                             </div>
                             <!-- total price-->
-                            <div class="navbar-cart-total"><span class="text-uppercase text-muted">Total</span><strong class="text-uppercase">$75.00</strong></div>
+                            <div class="navbar-cart-total"><span class="text-uppercase text-muted">Total</span><strong class="text-uppercase">{{convertCurrency(total)}}</strong></div>
                             <!-- buttons-->
                             <div class="d-flex justify-content-between">
-                                <a class="btn btn-link text-dark me-3" href="cart.html">View Cart 
+                                <router-link class="btn btn-link text-dark me-3" to="/cart">Carrito
                                   <img src="/assets/icons/shopping-bag.png" style="width: 15px;">
-                                </a>
+                                </router-link>
                                 <a class="btn btn-outline-dark" href="checkout1.html">Checkout</a>
                             </div>
                         </div>
@@ -318,19 +307,70 @@
   </template>
   
   <script>
+
+  import axios from 'axios';
+  import currency_formatter from 'currency-formatter';
+
   export default {
     name: 'Header',
     data(){
       return {
         user: JSON.parse(this.$store.state.user),
+        carrito: [],
+        total: 0,
+        carrito_lenght: 0, 
       }
     },
     methods: {
+
+      convertCurrency(number){
+        return currency_formatter.format(number, { code: 'USD' });
+      },
       logout(){
             this.$store.dispatch('logout');
-            this.$router.push({name: 'home'});
+            if(this.$route.path !== '/')this.$router.push({name: 'home'});
+            // window.location.reload();
+            this.carrito = [];
+            this.carrito_lenght = 0;
+      },
+      init_carrito(){
+            if(this.$store.state.token != null){
+              axios.get(this.$url+'/obtener_carrito_cliente/',{
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': this.$store.state.token,
+                  
+              }
+          }).then((result)=>{
+            this.carrito_lenght = result.data.carrito_general.length;
+            this.total = 0;
+            for(var item of result.data.carrito_general){
+              let subtotal = item.producto.precio * item.cantidad;
+              this.total = this.total+ subtotal;
+              }
+              this.carrito = result.data.carrito;
+          });
         }
+
+      },
+      click_event(){
+      this.$socket.emit('emit_method', 'Hola socket');
+    }
     },
+
+    created(){
+        this.sockets.subscribe('listen_card', (data) => {
+        this.init_carrito();
+        this.user = JSON.parse(this.$store.state.user);
+      });
+    },
+
+    beforeMount() {
+      this.init_carrito();
+    },
+
+  
+
   }
   </script>
   

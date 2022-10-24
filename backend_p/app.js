@@ -3,8 +3,25 @@ const mongoose = require('mongoose');
 var bodyparser = require('body-parser');
 require("dotenv").config();
 
-const app = express();
 const port = process.env.port || 9000;
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
+const app = express();
+
+const httpServer = createServer(app);
+const io = new Server(httpServer, { 
+    cors: {origin: '*'}
+});
+
+io.on("connection", (socket) => {
+  // ...
+ socket.on('send_card',function(data){
+    io.emit('listen_card',data);
+  });
+});
+
+
 var cliente_router = require('./routes/cliente');
 var usuario_router = require('./routes/usuario');
 var producto_router = require('./routes/producto');
@@ -26,7 +43,7 @@ mongoose
 .then(() => console.log("Connected to MongoDB Atlas"))
 .catch((error) => console.error(error));
 
-app.listen(port, () => console.log('server listening on port', port));
+httpServer.listen(port, () => console.log('server listening on port', port));
 
 app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Origin','*'); 
@@ -42,3 +59,4 @@ app.use('/api',producto_router);
 app.use('/api',public_router);
 app.use('/api',customer_router);
 
+module.exports = app;

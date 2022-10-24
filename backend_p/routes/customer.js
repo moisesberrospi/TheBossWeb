@@ -1,5 +1,6 @@
 const express = require('express');
 var customerController = require('../controllers/customerController');
+var cauthenticate = require('../middlewares/cauthenticate');
 
 var api = express.Router();
 

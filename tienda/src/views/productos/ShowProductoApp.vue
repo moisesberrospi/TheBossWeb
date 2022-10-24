@@ -384,7 +384,14 @@ export default {
        this.msm_error = 'Ingrese una cantidad válida';
       }else{
         this.msm_error = '';
-        console.log(this.obj_carrito);
+        axios.post(this.$url+'/crear_producto_carrito/',this.obj_carrito,{
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': this.$store.state.token,
+          }
+      }).then((result)=>{
+        this.$socket.emit('send_card',true);
+      });
       }
 
     } 
