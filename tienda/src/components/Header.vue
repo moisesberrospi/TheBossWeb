@@ -17,9 +17,7 @@
             </div>
             <div class="col-sm-5 d-flex justify-content-end">
               <!-- Language Dropdown-->
-              <button v-on:click="click_event()">Click</button>
-              
-
+              <!-- <button v-on:click="click_event()">Click</button> -->
               <div class="dropdown border-end px-3"><a class="dropdown-toggle topbar-link" id="langsDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/pe.svg" alt="español">Español</a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="langsDropdown"><a class="dropdown-item text-sm" href="#"><img class="topbar-flag" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/flag/us.svg" alt="english">English</a></div>
               </div>
@@ -226,7 +224,7 @@
 
                         <div class="dropdown-menu dropdown-menu-animated" aria-labelledby="categoryDropdownMenuLink" style="left: -50px !important;">
                         <a class="dropdown-item" href="category.html">Category - left sidebar   </a>
-                        <a class="dropdown-item" href="category-right.html">Category - right sidebar   </a>
+                        <router-link class="dropdown-item" to="/cuenta/direcciones">Direcciones</router-link>
                         <a class="dropdown-item" v-on:click="logout()">Cerrar Sesión  </a>
                       </div>
                     </a>
@@ -253,6 +251,7 @@
                                             <a class="navbar-cart-product-close" href="#">
                                               <img src="/assets/icons/close.png" style="width: 15px;" />
                                             </a>
+                                           
                                             <div class="ps-3">
                                               <router-link :to="{name: 'show-producto',params:{slug: item.producto.slug}}" class="navbar-cart-product-link"  style="text-overflow:ellipsis;overflow: hidden;white-space: nowrap;">{{item.producto.titulo}}</router-link>
                                               <small class="d-block text-muted">{{item.producto.str_variedad}}: {{item.variedad.variedad}} </small>

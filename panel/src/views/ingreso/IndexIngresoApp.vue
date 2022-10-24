@@ -198,7 +198,7 @@
           }
       },
       convertCurrency(number){
-            return currency_formatter.format(number, { code: 'USD' });
+            return currency_formatter.format(number, { code: 'PEN' });
         }
     },
     components: {

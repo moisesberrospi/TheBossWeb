@@ -493,13 +493,13 @@ $(function () {
 });
 
 export const init_carousel = {
+    
     init: function(){
        setTimeout(() => {
-        $(".product-slider").owlCarousel({
-         });
-         console.log('hola');
-       }, 1000);
+        $(".product-slider").owlCarousel({});
+       },500);
     },
+
     init_galeria: function(){
         setTimeout(() =>{
             $(".detail-slider").owlCarousel({
@@ -519,7 +519,7 @@ export const init_carousel = {
                     },
                 },
             });   
-        },50);
+        },500);
     },
     init_zoom: function(){
         setTimeout(() =>{
@@ -539,6 +539,6 @@ export const init_carousel = {
                     duration: 0,
                 });
             });
-        },50);
+        },500);
     }
 }

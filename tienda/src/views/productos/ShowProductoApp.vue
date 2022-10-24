@@ -118,7 +118,7 @@
               </div> -->
               <div class="col-12 col-lg-6 detail-option mb-5">
                 <label class="detail-option-heading fw-bold">Cantidad</label>
-                <input class="form-control detail-quantity" name="items" type="number" v-model="obj_carrito.cantidad">
+                <input class="form-control detail-quantity" name="items" type="number" pattern="^[0-9]" min="1" step="1" v-model="obj_carrito.cantidad">
               </div>
             </div>
             <ul class="list-inline">
@@ -313,7 +313,7 @@ border:none !important
 </style>
 
 <script>
-import { init_carousel } from '../../../public/assets/js/theme.d7b4a888.js'; 
+import { init_carousel } from '../../../public/assets/js/theme.d7b4a888'; 
 import currency_formatter from 'currency-formatter';
 import axios from 'axios';
 import moment from 'moment';
@@ -356,6 +356,7 @@ export default {
         console.log(this.galeria);
       });
     },
+
     init_productos_relacionados(categoria){
       axios.get(this.$url+'/obtener_producto_categoria/'+categoria,{
           headers: {
@@ -397,6 +398,7 @@ export default {
     } 
   },
   beforeMount() {
+    init_carousel.init();   
     init_carousel.init_galeria();
     init_carousel.init_zoom();
     this.init_data();

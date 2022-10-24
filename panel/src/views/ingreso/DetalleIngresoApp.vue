@@ -283,7 +283,7 @@
           });
       },
       convertCurrency(number){
-            return currency_formatter.format(number, { code: 'USD' });
+            return currency_formatter.format(number, { code: 'PEN' });
         },
         convertDate(item){
           return moment(item).format('YYYY/MM/DD');
