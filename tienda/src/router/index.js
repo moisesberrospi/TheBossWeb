@@ -16,6 +16,8 @@ const routes = [
   {path: '/producto/:slug',name: 'show-producto',component: ()=> import('@/views/productos/ShowProductoApp.vue')},
 
   {path: '/cuenta/direcciones',name: 'direcciones',component: ()=> import('@/views/cuenta/DireccionesApp.vue')},
+  {path: '/checkout',name: 'checkout',component: ()=> import('@/views/CheckoutView.vue')},
+
 
 ]
 

@@ -20,7 +20,7 @@
             <div class="col-lg-8 col-xl-9">
                 <div class="block">
                     <!-- Invoice Address-->
-                    <div class="block-header" style="background: #005f96;">
+                    <div class="block-header" style="background: #000000;">
                     <h6 class="text-uppercase mb-0 text-white">Nueva direcciones                 </h6>
                     </div>
                     <div class="block-body">
@@ -49,7 +49,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6 mb-3">
-                            <label class="form-label" for="state_invoice"><b>Region/Ciudad</b></label>
+                            <label class="form-label" for="state_invoice"><b>Ciudad/Distrito</b></label>
                             <input class="form-control" type="text" placeholder="Lima/Miraflores" v-model="direccion.ciudad">
                         </div>
                         <div class="form-group col-md-6 mb-3">

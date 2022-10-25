@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-center" data-parallax="scroll" data-image-src="/assets/img/glenn.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
+    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-center" data-parallax="scroll" data-image-src="/assets/img/TBC2.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h5 class="text-uppercase text-dark fw-normal mb-4 letter-spacing-5"> Just arrived</h5>
-            <h1 class="mb-5 display-2 fw-bold text-uppercase">Autumn vibes</h1>
-            <p> <a class="btn btn-outline-dark" href="category.html">See look book</a></p>
+            <h5 class="text-uppercase text-light fw-normal mb-4 letter-spacing-5"> Just arrived</h5>
+            <h1 class="mb-5 display-2 fw-bold text-light text-uppercase">The Boss Clothing</h1>
+            <p> <a class="btn btn-outline-light" href="category.html">New collection</a></p>
           </div>
         </div>
       </div>
@@ -15,9 +15,9 @@
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h1 class="mb-3 display-1 fw-bold text-uppercase">Ethnic<br class="display-lg">sweaters</h1>
-            <p class="h3 fw-normal mb-5">Trendy. Comfy. Beautiful. </p>
-            <p> <a class="btn btn-dark" href="category.html">See look book</a></p>
+            <h1 class="mb-3 display-1 text-light fw-bold text-uppercase">New<br class="display-lg">Hoodie</h1>
+            <p class="h3 fw-normal text-light mb-5">Fresco. Moderno. Street. </p>
+            <p> <a class="btn btn-dark" href="category.html">Busca</a></p>
           </div>
         </div>
       </div>
@@ -26,10 +26,10 @@
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h5 class="text-uppercase text-dark fw-normal mb-4 letter-spacing-5"> Our favourites</h5>
-            <h1 class="mb-3 display-3 fw-bold text-uppercase">Shirts</h1>
-            <p class="h3 fw-normal mb-5">Vestibulum tortor quam.<br>Feugiat vitae, ultricies eget. </p>
-            <p> <a class="btn btn-outline-dark" href="category.html">See look book</a></p>
+            <h5 class="text-uppercase text-light fw-normal mb-4 letter-spacing-5"> Tus reglas</h5>
+            <h1 class="mb-3 display-3 fw-bold text-light text-uppercase">Pantalones</h1>
+            <p class="h3 fw-normal text-light mb-5">Lo que buscas.<br>Lo tenemos. </p>
+            <p> <a class="btn btn-outline-light" href="category.html">New collection</a></p>
           </div>
         </div>
       </div>
@@ -38,8 +38,8 @@
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h1 class="mb-5 display-3 fw-bold text-uppercase">Men's collection</h1>
-            <p> <a class="btn btn-lg btn-dark" href="category.html">See look book</a></p>
+            <h1 class="mb-5 display-3 fw-bold text-light text-uppercase">Men's collection</h1>
+            <p> <a class="btn btn-lg btn-light" href="category.html">See the collection</a></p>
           </div>
         </div>
       </div>

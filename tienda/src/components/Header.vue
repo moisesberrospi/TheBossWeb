@@ -45,7 +45,6 @@
           <div >
           <a class="navbar-brand" href="./index.html">
                   <img src="/assets/img/tbc_b.png" class="navbar-brand-img mx-auto logotbc" alt="..." >
-                  
                 </a>
               </div>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
@@ -270,7 +269,7 @@
                                 <router-link class="btn btn-link text-dark me-3" to="/cart">Carrito
                                   <img src="/assets/icons/shopping-bag.png" style="width: 15px;">
                                 </router-link>
-                                <a class="btn btn-outline-dark" href="checkout1.html">Checkout</a>
+                                <router-link to="/checkout" class="btn btn-outline-dark">Checkout</router-link>
                             </div>
                         </div>
                     </div>
