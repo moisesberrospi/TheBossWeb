@@ -337,7 +337,7 @@ export default {
   },
   methods: {
     convertCurrency(number){
-        return currency_formatter.format(number, { code: 'USD' });
+        return currency_formatter.format(number, { code: 'PEN' });
     },
     init_data(){
       axios.get(this.$url+'/obtener_producto_slug/'+this.$route.params.slug,{

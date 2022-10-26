@@ -175,7 +175,7 @@
         },
         methods:{
             convertCurrency(number){
-                return currency_formatter.format(number, { code: 'USD' });
+                return currency_formatter.format(number, { code: 'PEN' });
             },
             init_direcciones(){
                 axios.get(this.$url+'/obtener_direcciones_cliente',{
@@ -228,21 +228,24 @@
             crearPreferencia(){
                 let data = {
                     back_urls: {
-                        success: 'http://localhost:8080/verifacion/success',
-                        pending: 'http://localhost:8080/verifacion/pending',
-                        failure: 'http://localhost:8080/verifacion/failure'
+                        success: 'http://localhost:8080/verificacion/success/'+this.venta.direccion,
+                        pending: 'http://localhost:8080/verificacion/pending',
+                        failure: 'http://localhost:8080/verificacion/failure'
                     },
                     items: this.items,
                     auto_return: 'approved'
                 }
 
+                console.log(data);
+
                 axios.post('https://api.mercadopago.com/checkout/preferences',data,{
                     headers: {
                             'Content-Type': 'application/json',
-                            'Authorization': 'Bearer TEST-7095416523820178-102500-22caef2b73761da675ec67824d56920f-201060268'
+                            'Authorization': 'Bearer TEST-6988418369124374-072921-db2efac53ee93fb95e044c7960f1c3ca-673389674'
                         }
                 }).then((result)=>{
                     console.log(result);
+                    window.location.href = result.data.sandbox_init_point;
                 })
             }
         }

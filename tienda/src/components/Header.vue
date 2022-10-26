@@ -25,7 +25,7 @@
               <div class="dropdown ps-3 ms-0"><a class="dropdown-toggle topbar-link" id="currencyDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false">PEN</a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="currencyDropdown">
                   <a class="dropdown-item text-sm" href="#"> 
-                    USD
+                    PEN
                   </a>
                  </div>
               </div>
@@ -322,7 +322,7 @@
     methods: {
 
       convertCurrency(number){
-        return currency_formatter.format(number, { code: 'USD' });
+        return currency_formatter.format(number, { code: 'PEN' });
       },
       logout(){
             this.$store.dispatch('logout');
