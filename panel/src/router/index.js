@@ -27,6 +27,10 @@ const routes = [
   {path: '/ingreso',name: 'ingreso-index',component: ()=>import('@/views/ingreso/IndexIngresoApp.vue'),meta: { requiresAuth: true }},
   {path: '/ingreso/:id',name: 'ingreso-detalle',component: ()=>import('@/views/ingreso/DetalleIngresoApp.vue'),meta: { requiresAuth: true }},
   
+
+  {path: '/ventas',name: 'ventas-index',component: ()=>import('@/views/ventas/VentasIndexApp.vue'),meta: { requiresAuth: true }},
+  {path: '/ventas/:id',name: 'ventas-detalle',component: ()=>import('@/views/ventas/VentasDetalleApp.vue'),meta: { requiresAuth: true }},
+
   
   {path: '/categorias',name: 'categorias',component: ()=>import('@/views/categorias/IndexCategoriaApp.vue'),meta: { requiresAuth: true }},
 
