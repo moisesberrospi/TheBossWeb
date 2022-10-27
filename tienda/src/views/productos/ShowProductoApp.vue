@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #f3f3f3;" class="pb-5">
+  <div  class="pb-5">
       <section class="product-details" style="margin-top: 8rem !important;">
     <div class="container">
       <div class="row">
@@ -187,78 +187,74 @@
         </div>
         <div class="tab-pane" id="reviews" role="tabpanel">
           <div class="row mb-5">
-            <div class="col-lg-10 col-xl-9">
-              <div class="review d-flex">
+            <div class="col-lg-10 col-xl-9" v-if="reviews.length == 0">
+              <div class="review d-flex" v-for="item in reviews">
                 <div class="flex-shrink-0 text-center me-4 me-xl-5"><img class="review-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/person-1.jpg" alt="Han Solo"><span class="text-uppercase text-muted">Dec 2018</span></div>
                 <div>
-                  <h5 class="mt-2 mb-1">Han Solo</h5>
-                  <div class="mb-2"><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i>
-                  </div>
-                  <p class="text-muted">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections     </p>
-                </div>
-              </div>
-              <div class="review d-flex">
-                <div class="flex-shrink-0 text-center me-4 me-xl-5"><img class="review-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/person-2.jpg" alt="Luke Skywalker"><span class="text-uppercase text-muted">Dec 2018</span></div>
-                <div>
-                  <h5 class="mt-2 mb-1">Luke Skywalker</h5>
-                  <div class="mb-2"><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-gray-200"></i>
-                  </div>
-                  <p class="text-muted">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. &quot;What's happened to me?&quot; he thought. It wasn't a dream.     </p>
-                </div>
-              </div>
-              <div class="review d-flex">
-                <div class="flex-shrink-0 text-center me-4 me-xl-5"><img class="review-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/person-3.jpg" alt="Princess Leia"><span class="text-uppercase text-muted">Dec 2018</span></div>
-                <div>
-                  <h5 class="mt-2 mb-1">Princess Leia</h5>
-                  <div class="mb-2"><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-gray-200"></i><i class="fa fa-xs fa-star text-gray-200"></i>
-                  </div>
-                  <p class="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.     </p>
-                </div>
-              </div>
-              <div class="review d-flex">
-                <div class="flex-shrink-0 text-center me-4 me-xl-5"><img class="review-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/person-4.jpg" alt="Jabba Hut"><span class="text-uppercase text-muted">Dec 2018</span></div>
-                <div>
-                  <h5 class="mt-2 mb-1">Jabba Hut</h5>
-                  <div class="mb-2"><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i><i class="fa fa-xs fa-star text-warning"></i>
-                  </div>
-                  <p class="text-muted">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.     </p>
-                </div>
-              </div>
-              <div class="py-5 px-3">
-                <h5 class="text-uppercase mb-4">Leave a review</h5>
-                <form class="form" id="contact-form" method="post" action="contact.php">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="mb-4">
-                        <label class="form-label" for="name">Your name *</label>
-                        <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" required="required">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="mb-4">
-                        <label class="form-label" for="rating">Your rating *</label>
-                        <select class="custom-select focus-shadow-0" name="rating" id="rating">
-                          <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5/5)</option>
-                          <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4/5)</option>
-                          <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3/5)</option>
-                          <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; (2/5)</option>
-                          <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; (1/5)</option>
-                        </select>
-                      </div>
+                  <h5 class="mt-2 mb-1">{{item.cliente.nombres}}</h5>
+                  <div class="mb-2">
+                    <div class="d-flex align-items-center">
+                      <ul class="list-inline me-2 mb-0" v-if="item.estrellas == 1">
+                                                <li class="list-inline-item me-0">
+                                                  <img src="/assets/icons/estrella.png" style="width:15px" alt="">
+                                                </li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                      </ul>
+                      <ul class="list-inline me-2 mb-0" v-if="item.estrellas == 2">
+                                                <li class="list-inline-item me-0">
+                                                  <img src="/assets/icons/estrella.png" style="width:15px" alt="">
+                                                </li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                      </ul>
+                      <ul class="list-inline me-2 mb-0" v-if="item.estrellas == 3">
+                                                <li class="list-inline-item me-0">
+                                                  <img src="/assets/icons/estrella.png" style="width:15px" alt="">
+                                                </li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                      </ul>
+                      <ul class="list-inline me-2 mb-0" v-if="item.estrellas == 4">
+                                                <li class="list-inline-item me-0">
+                                                  <img src="/assets/icons/estrella.png" style="width:15px" alt="">
+                                                </li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella-gris.png" style="width:15px" alt=""></li>
+                      </ul>
+                      <ul class="list-inline me-2 mb-0" v-if="item.estrellas == 5">
+                                                <li class="list-inline-item me-0">
+                                                  <img src="/assets/icons/estrella.png" style="width:15px" alt="">
+                                                </li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                                                <li class="list-inline-item me-0"><img src="/assets/icons/estrella.png" style="width:15px" alt=""></li>
+                     </ul>
                     </div>
                   </div>
-                  <div class="mb-4">
-                    <label class="form-label" for="email">Your email *</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="Enter your  email" required="required">
-                  </div>
-                  <div class="mb-4">
-                    <label class="form-label" for="review">Review text *</label>
-                    <textarea class="form-control" rows="4" name="review" id="review" placeholder="Enter your review" required="required"></textarea>
-                  </div>
-                  <button class="btn btn-outline-dark" type="submit">Post review</button>
-                </form>
+                  <p class="text-muted">{{item.comentario}}</p>
+                </div>
               </div>
+                    
+               
             </div>
+            <div class="col-lg-10 col-xl-9" v-if="reviews.length >=1">
+                   <div class="row">
+                   <div class="col-sm-8 col-md-5 text-center mb-md-0 mb-4 pb-md-0 pb-3 mx-auto">
+                   <img class="mb-3 mt-5" src="/assets/media/taza-de-cafe.gif" width="120" alt="Customer Support">
+                   <h4 class=" mb-2 text-muted" style="font-weight: 400;">Producto aún sin reseñas</h4>
+                </div>
+               </div>
+              </div>
           </div>
         </div>
       </div>
@@ -333,12 +329,24 @@ export default {
       },
       user_data : JSON.parse(this.$store.state.user),
       msm_error : '',
+      reviews: []
     }
   },
   methods: {
     convertCurrency(number){
         return currency_formatter.format(number, { code: 'PEN' });
     },
+
+    init_reviews(id){
+      axios.get(this.$url+'/obtener_reviews_producto/'+id,{
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }).then((result)=>{
+        this.reviews = result.data.reviews;
+      });
+    },
+
     init_data(){
       axios.get(this.$url+'/obtener_producto_slug/'+this.$route.params.slug,{
           headers: {
@@ -353,6 +361,7 @@ export default {
         this.variedades = result.data.variedades;
         this.galeria = result.data.galeria;
         this.init_productos_relacionados(this.producto.categoria);
+        this.init_reviews(this.producto._id);
         console.log(this.galeria);
       });
     },

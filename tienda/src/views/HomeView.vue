@@ -58,7 +58,9 @@
     display: block !important;
     vertical-align: middle !important;
   }
-
+  .light-overlay::after {
+    opacity: .0 !important;
+  }
 </style>
 
 <script>

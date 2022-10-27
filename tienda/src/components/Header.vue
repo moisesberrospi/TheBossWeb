@@ -222,7 +222,7 @@
                       </span>
 
                         <div class="dropdown-menu dropdown-menu-animated" aria-labelledby="categoryDropdownMenuLink" style="left: -50px !important;">
-                        <a class="dropdown-item" href="category.html">Category - left sidebar   </a>
+                        <router-link class="dropdown-item" to="/cuenta/venta">Mis Ventas   </router-link>
                         <router-link class="dropdown-item" to="/cuenta/direcciones">Direcciones</router-link>
                         <a class="dropdown-item" v-on:click="logout()">Cerrar Sesión  </a>
                       </div>

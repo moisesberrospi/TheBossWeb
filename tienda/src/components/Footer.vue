@@ -1,7 +1,7 @@
 <template>
      <footer class="main-footer">
       <!-- Services block-->
-      <div class="text-dark-700 py-6">
+      <div class="text-dark-700 py-6" style="background: #f3f3f3 !important;">
         <div class="container">
           <div class="row">
             <div class="col-lg-4 service-column">

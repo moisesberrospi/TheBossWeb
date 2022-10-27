@@ -16,5 +16,6 @@ api.post('/crear_venta_cliente',cauthenticate.decodeToken,customerController.cre
 
 api.get('/obtener_informacion_venta/:id',cauthenticate.decodeToken,customerController.obtener_informacion_venta);
 api.get('/obtener_ventas_cliente',cauthenticate.decodeToken,customerController.obtener_ventas_cliente);
+api.post('/registrar_review_cliente',cauthenticate.decodeToken,customerController.registrar_review_cliente);
 
 module.exports = api;
