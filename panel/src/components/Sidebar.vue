@@ -8,34 +8,9 @@
       </button>
   
       <!-- Brand -->
-      <a class="navbar-brand" href="./index.html">
+      <a class="navbar-brand" href="/dashboard">
         <img src="/assets/img/tbc.png" class="navbar-brand-img mx-auto" alt="...">
       </a>
-  
-      <!-- User (xs) -->
-      <div class="navbar-user d-md-none">
-  
-        <!-- Dropdown -->
-        <div class="dropdown">
-  
-          <!-- Toggle -->
-          <a href="#" id="sidebarIcon" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="avatar avatar-sm avatar-online">
-              <img src="/assets/img/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
-            </div>
-          </a>
-  
-          <!-- Menu -->
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarIcon">
-            <a href="./profile-posts.html" class="dropdown-item">Profile</a>
-            <a href="./account-general.html" class="dropdown-item">Settings</a>
-            <hr class="dropdown-divider">
-            <a href="./sign-in.html" class="dropdown-item">Logout</a>
-          </div>
-  
-        </div>
-  
-      </div>
   
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidebarCollapse">
@@ -105,45 +80,7 @@
         <div class="mt-auto"></div>
   
   
-          <!-- User (md) -->
-          <div class="navbar-user d-none d-md-flex" id="sidebarUser">
-  
-            <!-- Icon -->
-            <a class="navbar-user-link" data-bs-toggle="offcanvas" href="#sidebarOffcanvasActivity" aria-controls="sidebarOffcanvasActivity">
-              <span class="icon">
-                <i class="fe fe-bell"></i>
-              </span>
-            </a>
-  
-            <!-- Dropup -->
-            <div class="dropup">
-  
-              <!-- Toggle -->
-              <a href="#" id="sidebarIconCopy" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="avatar avatar-sm avatar-online">
-                  <img src="/assets/img/avatar-1.jpg" class="avatar-img rounded-circle" alt="..." style="-webkit-mask-image: none;">
-                </div>
-              </a>
-  
-              <!-- Menu -->
-              <div class="dropdown-menu" aria-labelledby="sidebarIconCopy">
-                <a href="./profile-posts.html" class="dropdown-item">Profile</a>
-                <a href="./account-general.html" class="dropdown-item">Settings</a>
-                <hr class="dropdown-divider">
-                <a href="./sign-in.html" class="dropdown-item">Logout</a>
-              </div>
-  
-            </div>
-  
-            <!-- Icon -->
-            <a class="navbar-user-link" data-bs-toggle="offcanvas" href="#sidebarOffcanvasSearch" aria-controls="sidebarOffcanvasSearch">
-              <span class="icon">
-                <i class="fe fe-search"></i>
-              </span>
-            </a>
-  
-          </div>
-  
+       
       </div> <!-- / .navbar-collapse -->
   
     </div>
