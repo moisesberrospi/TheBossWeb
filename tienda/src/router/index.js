@@ -18,6 +18,8 @@ const routes = [
   {path: '/cuenta/direcciones',name: 'direcciones',component: ()=> import('@/views/cuenta/DireccionesApp.vue')},
   {path: '/checkout',name: 'checkout',component: ()=> import('@/views/CheckoutView.vue')},
   {path: '/verificacion/:estado/:direccion?',name: 'verificacion',component: ()=> import('@/views/VerificacionView.vue')},
+  {path: '/cuenta/venta/:id',name: 'venta',component: ()=> import('@/views/cuenta/ventas/VentaDetalleApp.vue')},
+  {path: '/cuenta/venta',name: 'venta-index',component: ()=> import('@/views/cuenta/ventas/VentasIndexApp.vue')},
 
 
 ]
