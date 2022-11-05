@@ -1,6 +1,6 @@
 <template>
     <div style="background: #f3f3f3;">
-        <section class="hero" style="margin-top: 8rem !important;">
+        <section class="hero" style="margin-top: 2rem !important;">
             <div class="container">
                 <!-- Breadcrumbs -->
                 <ol class="breadcrumb justify-content-center">

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-center" data-parallax="scroll" data-image-src="/assets/img/TBC2.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
+    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-center" data-parallax="scroll" data-image-src="https://i.postimg.cc/fRhjRtpF/glenn.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </section>
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-start" data-parallax="scroll" data-image-src="/assets/img/TBC1.jpg" data-speed="0.5" data-position-x="right" data-bleed="20">
+    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-start" data-parallax="scroll" data-image-src="https://i.postimg.cc/HkpcNQfp/TBC1.jpg" data-speed="0.5" data-position-x="right" data-bleed="20">
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </section>
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-start text-md-end" data-parallax="scroll" data-image-src="/assets/img/TBC2.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
+    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-start text-md-end" data-parallax="scroll" data-image-src="https://i.postimg.cc/Kv73Q9pq/TBC2.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </section>
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-center" data-parallax="scroll" data-image-src="/assets/img/TBC3.jpg" data-speed="0.5" data-bleed="20">
+    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-center" data-parallax="scroll" data-image-src="https://i.postimg.cc/wTYsXK2R/TBC3.jpg" data-speed="0.5" data-bleed="20">
       <div class="container">
         <div class="row">
           <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
