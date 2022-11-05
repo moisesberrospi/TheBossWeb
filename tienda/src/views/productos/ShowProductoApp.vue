@@ -407,7 +407,7 @@ export default {
     } 
   },
   beforeMount() {
-    // init_carousel.init();   
+    init_carousel.init();   
     init_carousel.init_galeria();
     init_carousel.init_zoom();
     this.init_data();

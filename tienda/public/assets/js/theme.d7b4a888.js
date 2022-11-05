@@ -497,7 +497,7 @@ export const init_carousel = {
     init: function(){
        setTimeout(() => {
         $(".product-slider").owlCarousel({});
-       },500);
+       },1000);
     },
 
     init_galeria: function(){
@@ -519,7 +519,7 @@ export const init_carousel = {
                     },
                 },
             });   
-        },500);
+        },1000);
     },
     init_zoom: function(){
         setTimeout(() =>{
@@ -539,6 +539,6 @@ export const init_carousel = {
                     duration: 0,
                 });
             });
-        },500);
+        },1000);
     }
 }
