@@ -471,6 +471,8 @@ $(function () {
         },
     });
 
+    
+
     // ------------------------------------------------------- //
     //   Bootstrap tooltips
     // ------------------------------------------------------- //
@@ -493,52 +495,51 @@ $(function () {
 });
 
 export const init_carousel = {
-    
     init: function(){
-       setTimeout(() => {
-        $(".product-slider").owlCarousel({});
-       },1000);
-    },
-
-    init_galeria: function(){
+        
         setTimeout(() =>{
-            $(".detail-slider").owlCarousel({
+        var homeFullSlider = $(".home-full-slider");
+            homeFullSlider.owlCarousel({
                 loop: true,
-                items: 1,
-                thumbs: true,
-                thumbsPrerendered: true,
+                margin: 0,
+                smartSpeed: 500,
                 responsiveClass: true,
+                navText: [
+                    '<img src="' + basePath + 'img/prev.svg" alt="" width="50">',
+                    '<img src="' + basePath + 'img/next.svg" alt="" width="50">',
+                ],
                 responsive: {
                     0: {
                         items: 1,
+                        nav: false,
                         dots: true,
                     },
-                    768: {
+                    600: {
+                        items: 1,
+                        nav: false,
+                        dots: true,
+                    },
+                    1120: {
                         items: 1,
                         dots: false,
+                        nav: true,
                     },
                 },
-            });   
-        },1000);
-    },
-    init_zoom: function(){
-        setTimeout(() =>{
-            const lightbox = GLightbox({
-                touchNavigation: true,
-                //loop: true,
-                autoplayVideos: true,
+                onRefresh: function () {
+                    homeFullSlider.find(".item").height("");
+                },
+                onRefreshed: function () {
+                    var maxHeight = 0;
+                    var items = homeFullSlider.find(".item");
+                    items.each(function () {
+                        var itemHeight = $(this).height();
+                        if (itemHeight > maxHeight) {
+                            maxHeight = itemHeight;
+                        }
+                    });
+                    items.height(maxHeight);
+                },
             });
-
-            // ------------------------------------------------------- //
-            //   Image zoom
-            // ------------------------------------------------------ //
-
-            $('[data-bs-toggle="zoom"]').each(function () {
-                $(this).zoom({
-                    url: $(this).attr("data-image"),
-                    duration: 0,
-                });
-            });
-        },1000);
+        }, 50);
     }
 }

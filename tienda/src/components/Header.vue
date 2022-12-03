@@ -43,7 +43,7 @@
 <path class="text-primary" d="M62.0254 15.4219H64.418V18H62.0254V15.4219Z" transform="translate(0 -3)" fill="#9A6EE2"/>
 </svg></a> -->
           <div >
-          <a class="navbar-brand" href="./index.html">
+          <a class="navbar-brand" href="/">
                   <img src="/assets/img/tbc_b.png" class="navbar-brand-img mx-auto logotbc" alt="..." >
                 </a>
               </div>
@@ -59,13 +59,13 @@
               </li>
               
               <!-- Megamenu-->
-              <li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown">Categorias</a>
+               <!--<li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown">Categorias</a>
                 <div class="dropdown-menu dropdown-menu-animated megamenu py-lg-0">
                   <div class="row">
                     <div class="col-lg-9">
                       <div class="row p-3 pe-lg-0 ps-lg-5 pt-lg-5">
                         <div class="col-lg-3">
-                          <!-- Megamenu list-->
+                          
                           <h6 class="text-uppercase">Homepage</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="index.html">Fullscreen home + Lookbook   </a></li>
@@ -74,7 +74,7 @@
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="index4.html">Parallax sections  <span class="badge bg-warning ms-1">New</span>   </a></li>
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="index5.html">Slider + Broken grid  <span class="badge bg-warning ms-1">New</span>   </a></li>
                           </ul>
-                          <!-- Megamenu list-->
+                         
                           <h6 class="text-uppercase">Shop</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="category.html">Category - left sidebar   </a></li>
@@ -89,7 +89,7 @@
                           </ul>
                         </div>
                         <div class="col-lg-3">
-                          <!-- Megamenu list-->
+                          
                           <h6 class="text-uppercase">Order process</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="cart.html">Shopping cart   </a></li>
@@ -100,7 +100,7 @@
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="checkout4.html">Checkout 4 - Review     </a></li>
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="checkout5.html">Checkout 5 - Confirmation   </a></li>
                           </ul>
-                          <!-- Megamenu list-->
+                          
                           <h6 class="text-uppercase">Blog</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="blog.html">Blog   </a></li>
@@ -108,7 +108,7 @@
                           </ul>
                         </div>
                         <div class="col-lg-3">
-                          <!-- Megamenu list-->
+                          
                           <h6 class="text-uppercase">Pages</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="about.html">About us <span class="badge bg-warning ms-1">New</span>   </a></li>
@@ -119,7 +119,7 @@
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="faq.html">F.A.Q.s   </a></li>
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="coming-soon.html">Coming soon   </a></li>
                           </ul>
-                          <!-- Megamenu list-->
+                          
                           <h6 class="text-uppercase">Customer</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="customer-login.html">Login/sign up   </a></li>
@@ -130,7 +130,7 @@
                           </ul>
                         </div>
                         <div class="col-lg-3">
-                          <!-- Megamenu list-->
+                         
                           <h6 class="text-uppercase">Documentation</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="docs/docs-introduction.html">Introduction   </a></li>
@@ -140,7 +140,7 @@
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="docs/docs-credits.html">Credits   </a></li>
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="docs/docs-changelog.html">Changelog   </a></li>
                           </ul>
-                          <!-- Megamenu list-->
+                          
                           <h6 class="text-uppercase">Components</h6>
                           <ul class="megamenu-list list-unstyled">
                             <li class="megamenu-list-item"><a class="megamenu-list-link" href="docs/components-bootstrap.html">Bootstrap   </a></li>
@@ -199,7 +199,7 @@
                     <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="https://d19m59y37dris4.cloudfront.net/sell/2-0/img/megamenu.jpg" alt=""></div>
                   </div>
                 </div>
-              </li>
+              </li>-->
               <li class="nav-item"><a class="nav-link" href="">Contacto</a>
               </li>
             </ul>

@@ -1,50 +1,97 @@
 <template>
-  <div class="home">
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-center" data-parallax="scroll" data-image-src="https://i.postimg.cc/fRhjRtpF/glenn.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h5 class="text-uppercase text-light fw-normal mb-4 letter-spacing-5"> Just arrived</h5>
-            <h1 class="mb-5 display-2 fw-bold text-light text-uppercase">The Boss Clothing</h1>
-            <p> <a class="btn btn-outline-light" href="category.html">New collection</a></p>
+  <section>
+    <!-- Hero Section-->
+    <section class="home-full-slider-wrapper mb-2">
+      <!-- Hero Slider-->
+      <div class="owl-carousel owl-theme owl-dots-modern home-full-slider">
+        <div class="item home-full-item" style="background: #f8d5cf;"><img class="bg-image" src="https://i.postimg.cc/6TJCPMzB/TBC3-1.jpg" alt="">
+          <div class="container-fluid h-100 py-5">
+            <div class="row align-items-center h-100">
+              <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
+                <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"> Nuevos Productos</h5>
+                <h1 class="mb-5 display-2 fw-bold text-serif">Beanies</h1>
+                <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p> <a class="btn btn-light" href="/shop">Ver Productos</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item home-full-item bg-dark dark-overlay"><img class="bg-image" src="https://i.postimg.cc/GtskzWFM/TBC2-1.jpg" alt="">
+          <div class="container-fluid h-100">
+            <div class="row align-items-center h-100">
+              <div class="col-lg-8 col-xl-6 mx-auto text-white text-center overlay-content">
+                <h1 class="mb-4 display-2 text-uppercase fw-bold">Hoodies</h1>
+                <p class="lead mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p> <a class="btn btn-light" href="/shop">Empieza a Comprar</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item home-full-item"><img class="bg-image" src="https://i.postimg.cc/PfLcBNK7/TBC1-1.jpg" alt="">
+          <div class="container-fluid h-100">
+            <div class="row align-items-center h-100">
+              <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
+                <h5 class="text-uppercase fw-light mb-4 letter-spacing-5"> Los Mas Vendidos</h5>
+                <h1 class="mb-5 display-1 fw-bold text-serif">Bucket Hats</h1>
+                <p> <a class="btn btn-light" href="/shop">Ver Prouctos</a></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-start" data-parallax="scroll" data-image-src="https://i.postimg.cc/HkpcNQfp/TBC1.jpg" data-speed="0.5" data-position-x="right" data-bleed="20">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h1 class="mb-3 display-1 text-light fw-bold text-uppercase">New<br class="display-lg">Hoodie</h1>
-            <p class="h3 fw-normal text-light mb-5">Fresco. Moderno. Street. </p>
-            <p> <a class="btn btn-dark" href="category.html">Busca</a></p>
+     <section>
+      <div class="container-fluid g-2">
+        <div class="row g-2">
+          <div class="col-md-6">
+            <div class="card border-0 text-white text-center"><img class="card-img" src="https://i.postimg.cc/NMR6w0kv/New-arrivals-TBC.jpg" alt="Card image">
+              <div class="card-img-overlay d-flex align-items-center"> 
+                <div class="w-100 py-3">
+                  <h2 class="display-3 fw-bold mb-4">Top picks</h2><a class="btn btn-light" href="/shop">Shop now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card border-0 text-white text-center"><img class="card-img" src="https://i.postimg.cc/52kMW4s0/top-picks-TBC.jpg" alt="Card image">
+              <div class="card-img-overlay d-flex align-items-center"> 
+                <div class="w-100 py-3">
+                  <h2 class="display-3 fw-bold mb-4">New arrivals</h2><a class="btn btn-light" href="/shop">Shop now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card border-0 text-center text-white"><img class="card-img" src="https://i.postimg.cc/8cDhkVZJ/bucket-Hat-TBC.jpg" alt="Card image">
+              <div class="card-img-overlay d-flex align-items-center"> 
+                <div class="w-100">
+                  <h2 class="display-4 mb-4">Jackets</h2><a class="btn btn-link text-white" href="/shop">Shop now <i class="fa-arrow-right fa ms-2"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card border-0 text-center text-white"><img class="card-img" src="https://i.postimg.cc/R0k78tfT/Joggers-TBC.jpg" alt="Card image">
+              <div class="card-img-overlay d-flex align-items-center"> 
+                <div class="w-100">
+                  <h2 class="display-4 mb-4">Lookbook</h2><a class="btn btn-link text-white" href="/shop">Shop now <i class="fa-arrow-right fa ms-2"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card border-0 text-center text-dark"><img class="card-img" src="https://i.postimg.cc/tJtHKFcQ/tabone-TBC.jpg" alt="Card image">
+              <div class="card-img-overlay d-flex align-items-center"> 
+                <div class="w-100">
+                  <h2 class="display-4 mb-4">Try this</h2><a class="btn btn-link text-white" href="/shop">Shop now <i class="fa-arrow-right fa ms-2"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-dark text-start text-md-end" data-parallax="scroll" data-image-src="https://i.postimg.cc/Kv73Q9pq/TBC2.jpg" data-speed="0.5" data-position-x="left" data-bleed="20">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h5 class="text-uppercase text-light fw-normal mb-4 letter-spacing-5"> Tus reglas</h5>
-            <h1 class="mb-3 display-3 fw-bold text-light text-uppercase">Pantalones</h1>
-            <p class="h3 fw-normal text-light mb-5">Lo que buscas.<br>Lo tenemos. </p>
-            <p> <a class="btn btn-outline-light" href="category.html">New collection</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="vh-100 light-overlay light-overlay-lg-0 d-flex align-items-center text-center" data-parallax="scroll" data-image-src="https://i.postimg.cc/wTYsXK2R/TBC3.jpg" data-speed="0.5" data-bleed="20">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 py-5 overflow-hidden overlay-content mx-auto">
-            <h1 class="mb-5 display-3 fw-bold text-light text-uppercase">Men's collection</h1>
-            <p> <a class="btn btn-lg btn-light" href="category.html">See the collection</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  </section>
 </template>
 
 <style>
@@ -56,7 +103,7 @@
   .img-fluid{
     height: auto !important;
     display: block !important;
-    vertical-align: middle !important;
+    /*vertical-align: middle !important;*/
   }
   .light-overlay::after {
     opacity: .0 !important;
