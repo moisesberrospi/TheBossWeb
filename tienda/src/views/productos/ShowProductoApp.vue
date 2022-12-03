@@ -309,7 +309,7 @@ border:none !important
 </style>
 
 <script>
-import { init_carousel } from '../../../public/assets/js/theme.d7b4a888'; 
+import { init_carousel_producto } from '../../../public/assets/js/theme.d7b4a888'; 
 import currency_formatter from 'currency-formatter';
 import axios from 'axios';
 import moment from 'moment';
@@ -407,9 +407,9 @@ export default {
     } 
   },
   beforeMount() {
-    init_carousel.init();   
-    init_carousel.init_galeria();
-    init_carousel.init_zoom();
+    init_carousel_producto.init();   
+    init_carousel_producto.init_galeria();
+    init_carousel_producto.init_zoom();
     this.init_data();
   
   },
